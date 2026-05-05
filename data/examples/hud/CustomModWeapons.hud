@@ -1,0 +1,103 @@
+Code:   
+
+ViewPort("Transforms")
+{
+    EventNameFilter("player%")
+
+// Primary Weapons Section
+
+    TransformNameMesh("player1weapon1")
+   // add msh names of first weapons here and remove unused lines 
+    {
+		NameMesh("ugn_spear", "com_inv_mesh")
+
+        EventInput("player1.weapon1.change")
+        EventOutput("player1.weapon1.mesh")
+    }
+    }
+    
+    Group("extraWeaponDisplay")
+{
+    PropagateAlpha(1)
+    Viewport(1)
+    Position(0.0000000, 1.000000, 0.000000, "Viewport")
+    ZOrder(255)
+    EventEnable("player1.weaponsEnable")
+    EventDisable("player1.weaponsDisable")
+
+     Group("extraWeaponIcon")
+{
+    Viewport(1)
+    Position(0.346161, -0.450412, 0.000000, "Viewport")
+    EventEnable("initialize")
+    
+    Model3D("player1.weapon1mesh")         
+{
+                EventMesh("player1.weapon1.change")
+                Viewport(1)
+                ZOrder(5)
+                EventEnable("player1.weapon1.mesh")
+                EventDisable("player1.weapon1.disable")
+                Position(500.000000, 500.000000, 500.000000, "Viewport")
+                Rotation(0.804269, 359.994110, 359.999695)
+                Scale(0.000000, 0.000000, 0.000000)
+                
+  //change position, rotation and scale of first weapon here, remove unused lines
+			    MeshInfo("ugn_spear")
+                {
+                    Position(-0.26, 0.360546, 0.003365, "Viewport")
+                    Rotation(0.804269, 90.747269, 359.999695)
+                    Scale(1.000000, 1.000000, 1.000000)
+                }
+                }
+                }
+		}
+		
+// Second Weapons Section
+		
+  TransformNameMesh("player1weapon2")
+    // add names of second weapons here 
+    {
+		NameMesh("ugn_junk", "com_inv_mesh")
+		
+        EventInput("player1.weapon2.change")
+        EventOutput("player1.weapon2.mesh")
+    }
+  
+      Group("extraWeaponDisplay")
+{
+    PropagateAlpha(1)
+    Viewport(1)
+    Position(0.0000000, 1.000000, 0.000000, "Viewport")
+    ZOrder(255)
+    EventEnable("player1.weaponsEnable")
+    EventDisable("player1.weaponsDisable")
+    
+      Group("extraWeaponIcon")
+{
+    Viewport(1)
+    Position(0.346161, -0.450412, 0.000000, "Viewport")
+    EventEnable("initialize")
+    
+    Model3D("player1.weapon2mesh")         
+{
+                EventMesh("player1.weapon2.change")
+                Viewport(1)
+                ZOrder(5)
+                EventEnable("player1.weapon2.mesh")
+                EventDisable("player1.weapon2.disable")
+                Position(500.000000, 500.000000, 500.000000, "Viewport")
+                Rotation(0.804269, 359.994110, 359.999695)
+                Scale(0.000000, 0.000000, 0.000000)
+                
+// adjust position, rotation and scale of second weapon here
+				MeshInfo("ugn_junk")
+                {
+                    Position(-0.26, 0.284363, 0.000847, "Viewport")
+                    Rotation(0.1,-0.0, 359.999695)
+                    Scale(1.0, 1.0, 1.0)
+                }
+				
+                }
+                }
+                }
