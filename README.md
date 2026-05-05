@@ -1,4 +1,4 @@
-[](/data/html/android-chrome-256x256.png)
+![App Logo](data/html/android-chrome-256x256.png)
 # swbf2-modding-assistant
 A local AI assistant for modding Star Wars Battlefront II (2005). 
 
