@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWBF2 Modding Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" type="image/png">
+    <script src="marked.umd.min.js"></script>
+    <link rel="stylesheet" href="katex.min.css">
+    <script src="katex.min.js"></script>
+    <script src="marked-katex-extension.umd.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="brand-container">
+                    <div class="brand-icon">
+                        <img src="android-chrome-256x256.png" width="40" height="40" alt="Brand Icon">
+                        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg> -->
+                    </div>
+                    <h1 class="brand-title">SWBF2 Modding Assistant</h1>
+                </div>
+                <button class="sidebar-toggle" onclick="toggleSidebar()" title="Toggle Sidebar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                </button>
+            </div>
+
+            <div class="sidebar-action" id="new-conversation-button">
+                <button class="btn-primary" onclick="startNewConversation()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    <span>New Conversation</span>
+                </button>
+            </div>
+
+            <nav class="history-list custom-scrollbar" id="history-list">
+                <div class="history-label">Conversations</div>
+                <!-- Conversation items injected here -->
+            </nav>
+
+            <div class="sidebar-footer">
+                <button onclick="toggleSettings(true)" class="btn-ghost">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    <span>Settings</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="main-content" id="drop-zone">
+            <!-- Header -->
+            <header class="main-header glass">
+                <div class="active-model">
+                    <span>Model:</span>
+                    <span id="modelName" class="model-badge">No Model Loaded</span>
+                    <span id="modelSpinner" class="model-spinner hidden"></span>
+                </div>
+                <div class="llama-status">
+                    <span id="llamaStatusDot" class="status-dot offline"></span>
+                    <span id="llamaStatusText" class="status-text">Offline</span>
+                </div>
+
+                <div id="drop-indicator" class="hidden pulse">
+                    Ready to upload...
+                </div>
+            </header>
+
+            <!-- Messages Container -->
+            <div class="chat-viewport custom-scrollbar" id="chat-messages">
+                <div class="message-container">
+                    <!-- Welcome Message -->
+                    <div class="message-row">
+                        <div class="avatar avatar-bot">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8" y2="16"></line><line x1="16" y1="16" x2="16" y2="16"></line></svg>
+                        </div>
+                        <div class="message-content">
+                            <p>Welcome, Trooper! I'm your <b>SWBF2 Modding Assistant</b>. I can help you with ODF properties, lua scripting, or level-creation for your mods. How can I assist?</p>
+                            
+                            <div id="suggestions-container" class="suggestion-grid"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-wrapper">
+                <div class="input-container">
+                    <textarea 
+                        id="chat-input"
+                        rows="1"
+                        placeholder="Ask about side modding, map-making, sound mods..."
+                    ></textarea>
+                    <button class="send-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+                    </button>
+                </div>
+                <p class="input-hint">Drag and drop files to provide context to the assistant.</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Settings Overlay -->
+    <div id="settings-overlay" class="overlay hidden" onclick="toggleSettings(false)">
+        <div class="settings-modal" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button onclick="toggleSettings(false)" class="close-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            
+            <div class="modal-body custom-scrollbar">
+                <!-- Theme Section -->
+                <section class="settings-section">
+                    <h3>Appearance</h3>
+                    <div class="setting-item">
+                        <div class="setting-label">
+                            <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                            <span id="themeName">Dark Mode</span>
+                        </div>
+                        <button onclick="toggleTheme()" id="theme-toggle" class="toggle-switch">
+                            <div class="toggle-knob"></div>
+                        </button>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+                            <span>Font Family</span>
+                        </div>
+                        <select id="font-select" class="text-input" onchange="changeFont()" style="width: 140px; cursor: pointer;">
+                            <option value="default">Default</option>
+                            <option value="Orbitron">Orbitron</option>
+                            <option value="Aurebesh">Aurebesh</option>
+                        </select>
+                    </div>
+                </section>
+
+                <!-- Models Section -->
+                <section class="settings-section">
+                    <h3>Models</h3>
+                    <div class="setting-item">
+                        <div class="setting-label">
+                            <span id="autoLoad">Auto-load Model on Startup</span>
+                        </div>
+                        <button onclick="toggleAutoLoad()" id="autoLoad-toggle" class="toggle-switch">
+                            <div class="toggle-knob"></div>
+                        </button>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-label">
+                            <span>Context Length</span>
+                        </div>
+                        <input type="number" id="context-length-input" class="text-input" style="width: 100px;" value="4096" step="512" min="2048">
+                    </div>
+                    <div class="model-list" id="model-list">
+                        <!-- Model entries -->
+                        <div class="model-card active">
+                            <div>
+                                <p class="model-name">Offline (Active)</p>
+                                <p class="model-meta"></p>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle></svg>
+
+                        </div>
+                        <div class="model-card">
+                            <div>
+                                <p class="model-name">Offline</p>
+                                <p class="model-meta"></p>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle></svg>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Conversations Section -->
+                <section class="settings-section">
+                    <h3>Conversations</h3>
+                    <div class="setting-item">
+                        <div class="setting-label">
+                            <span>Show Tool Calls</span>
+                        </div>
+                        <button onclick="toggleShowToolCalls()" id="showToolCalls-toggle" class="toggle-switch">
+                            <div class="toggle-knob"></div>
+                        </button>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-label">
+                            <span>Show AI Reasoning</span>
+                        </div>
+                        <button onclick="toggleShowReasoning()" id="showReasoning-toggle" class="toggle-switch">
+                            <div class="toggle-knob"></div>
+                        </button>
+                    </div>
+                    <div class="setting-item" style="flex-direction: column; gap: 10px; align-items: stretch;">
+                        <button class="btn-secondary" onclick="exportConversations()" style="justify-content: center;">
+                            <span>Export Conversations</span>
+                        </button>
+                        <button class="btn-secondary" onclick="importConversations()" style="justify-content: center;">
+                            <span>Import Conversations</span>
+                        </button>
+                        <button class="btn-secondary" onclick="deleteAllConversations()" style="justify-content: center; border-color: var(--danger, #ef4444); color: var(--danger, #ef4444);">
+                            <span>Delete All Conversations</span>
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rename Modal -->
+    <div id="rename-modal-overlay" class="overlay hidden" onclick="cancelRename()">
+        <div class="settings-modal rename-modal" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2>Rename Conversation</h2>
+                <button onclick="cancelRename()" class="close-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="rename-input" class="text-input" placeholder="New conversation name">
+                <div class="modal-actions">
+                    <button class="btn-secondary" onclick="cancelRename()">Cancel</button>
+                    <button class="btn-primary" onclick="confirmRename()">Rename</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Context Menu -->
+    <div id="context-menu" class="context-menu hidden">
+        <div id="menu-sidebar-items">
+            <div class="menu-item" onclick="handleRenameClick(event)">Rename</div>
+            <div class="menu-item danger" onclick="handleDeleteClick(event)">Delete</div>
+        </div>
+        <div id="menu-message-items" class="hidden">
+            <div class="menu-item" onclick="handleEditMsgClick(event)">Edit Message</div>
+            <div class="menu-item danger" onclick="handleDeleteMsgClick(event)">Delete Message</div>
+        </div>
+    </div>
+
+    <script>
+        // Global HTML references ------------------------------------------
+        const modelSpinner = document.getElementById("modelSpinner");
+        const chatViewport = document.getElementById('chat-messages');
+        const messagesContainer = chatViewport.querySelector('.message-container');
+        const chatInput = document.getElementById('chat-input');
+        const sendBtn = document.querySelector('.send-btn');
+        const sidebar = document.getElementById('sidebar');
+        const historyList = document.getElementById('history-list');
+        const contextMenu = document.getElementById('context-menu');
+        const renameModalOverlay = document.getElementById('rename-modal-overlay');
+        const renameInput = document.getElementById('rename-input');
+        const dropZone = document.getElementById('drop-zone');
+        const dropIndicator = document.getElementById('drop-indicator');
+        const themeName = document.getElementById('themeName');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const autoLoadToggleBtn = document.getElementById('autoLoad-toggle');
+        const contextLengthInput = document.getElementById('context-length-input');
+        const showToolCallsToggleBtn = document.getElementById('showToolCalls-toggle');
+        const showReasoningToggleBtn = document.getElementById('showReasoning-toggle');
+        const fontSelect = document.getElementById('font-select');
+
+        // Theme icons
+        const sunIcon = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+        const moonIcon = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+
+        // Selected LLM (GGUF)
+        let selectedModel = null;
+
+        // Tracking context length changes in settings
+        let contextLengthAtModalOpen = null;
+
+        // Local cache of model metadata (for context length lookups)
+        let allModelsData = [];
+
+        // Pending file attachments
+        let pendingFiles = [];
+
+        // Conversation list: { id: { title: string, messages: [] } }
+        let conversations = JSON.parse(localStorage.getItem('conversations')) || {};
+
+        // Current conversation ID
+        let activeConversationId = null;
+
+        // AbortController for streaming responses
+        let currentAbortController = null;
+
+        // Copy code to clipboard
+        function copyCode(btn) {
+            const code = btn.nextElementSibling.innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                btn.textContent = 'Copied!';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = 'Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        // Conversation context menu target
+        let menuTargetId = null;
+
+        // Message context menu target index
+        let menuTargetMsgIndex = null;
+
+        // Whether to load a model on startup
+        let loadModelOnStartup = JSON.parse(localStorage.getItem('loadModelOnStartup')) ?? false;
+        console.log("loadModelOnStartup from localStorage:", loadModelOnStartup);
+
+        let showToolCalls = JSON.parse(localStorage.getItem('showToolCalls')) ?? false;
+        let showReasoning = JSON.parse(localStorage.getItem('showReasoning')) ?? true;
+
+        // Initialize auto-load toggle state
+        autoLoadToggleBtn.classList.toggle('is-checked', loadModelOnStartup);
+        showToolCallsToggleBtn.classList.toggle('is-checked', showToolCalls);
+        showReasoningToggleBtn.classList.toggle('is-checked', showReasoning);
+
+        // Context Length initialization
+        let contextLength = JSON.parse(localStorage.getItem('contextLength')) ?? 2048;
+        contextLengthInput.value = contextLength;
+        console.log("contextLength from localStorage:", contextLength);
+
+        // Add event listeners -----------------------------------------
+
+        // Save context length to localStorage
+        contextLengthInput.addEventListener('change', async () => {
+            let val = parseInt(contextLengthInput.value);
+            const maxVal = parseInt(contextLengthInput.max) || 32768;
+            const minVal = parseInt(contextLengthInput.min) || 2048;
+
+            if (isNaN(val)) val = minVal;
+            if (val < minVal) val = minVal;
+            if (val > maxVal) val = maxVal;
+
+            contextLength = val;
+            contextLengthInput.value = val;
+            localStorage.setItem('contextLength', contextLength);
+            console.log("updateContextLength:: Context length updated to:", contextLength);
+        });
+
+        // Set size of chat input to scale automatically with content
+        chatInput.addEventListener('input', () => {
+            chatInput.style.height = 'auto';
+            chatInput.style.height = chatInput.scrollHeight + 'px';
+        });
+
+        // Send message on enter key press
+        chatInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+
+        // Send message on send button click
+        sendBtn.addEventListener('click', () => {
+            if (sendBtn.classList.contains("stop-mode")) {
+                stopStreaming();
+            } else {
+                sendMessage();
+            }
+        });
+
+        // Close conversation context menu when clicked outside of it
+        window.addEventListener('click', hideContextMenu);
+
+        // Confirm renaming on enter key press inside renameInput
+        renameInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                confirmRename();
+            }
+        });
+
+        // Cancel action, hide modals/conversation context menu on escape key press
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                hideContextMenu();
+                cancelRename();
+                toggleSettings(false);
+            }
+        });
+
+        // Drag enter/over indicator
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropZone.addEventListener(eventName, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                dropIndicator.classList.remove('hidden');
+            }, false);
+        });
+
+        // Drag leave/drop indicator
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                dropIndicator.classList.add('hidden');
+            }, false);
+        });
+
+        // Append dropped files to user input message
+        dropZone.addEventListener('drop', async (e) => {
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                console.log('Files dropped:', files);
+                for (const file of files) {
+                    try {
+                        const content = await readFileAsText(file);
+                        pendingFiles.push({ name: file.name, content: content });
+                        appendSystemMessage(`Attached File: ${file.name}`, file.name);
+                    } catch (err) {
+                        console.error("Failed to read file:", err);
+                        appendSystemMessage(`Error reading file: ${file.name}`);
+                    }
+                }
+            }
+        }, false);
+
+        // Helper to read file content as text
+        function readFileAsText(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = reject;
+                reader.readAsText(file);
+            });
+        }
+
+        // Helper function to escape HTML for displaying file content
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+        }
+
+        // Helper to render performance metrics HTML for assistant messages
+        function renderMetricsHtml(metrics) {
+            if (!metrics || metrics.error || Object.keys(metrics).length === 0) return '';
+            
+            let parts = [];
+            if (metrics.tps) parts.push(`<span><b>Throughput:</b> ${metrics.tps.toFixed(2)} tokens/second</span>`);
+            
+            if (metrics.n_ctx) {
+                // Use user setting (contextLength) as the 'max-context-length' for window and fullness calculations
+                const windowPct = ((metrics.n_ctx / contextLength) * 100).toFixed(1);
+                parts.push(`<span><b>Max Context Length:</b> ${metrics.n_ctx.toLocaleString()} / ${contextLength.toLocaleString()} (${windowPct}%)</span>`);
+            }
+
+            if (parts.length === 0) return '';
+            
+            return `<div class="message-metrics">${parts.join(' | ')}</div>`;
+        }
+
+        // Function to toggle visibility of file content and update button icon
+        function toggleFileContent(fileId) {
+            const fileContentElement = document.getElementById(fileId);
+            if (fileContentElement) {
+                fileContentElement.classList.toggle('hidden');
+                // Find the button that triggered this, assuming it's the previous sibling
+                const button = fileContentElement.previousElementSibling;
+                if (button && button.classList.contains('btn-toggle-file-content')) {
+                    const svg = button.querySelector('svg');
+                    if (svg) {
+                        const isHidden = fileContentElement.classList.contains('hidden');
+                        svg.innerHTML = isHidden ? '<polyline points="6 9 12 15 18 9"></polyline>' : '<polyline points="18 15 12 9 6 15"></polyline>';
+                    }
+                }
+            }
+        }
+
+        // Toggle visibility of reasoning content
+        function toggleReasoning(id) {
+            const content = document.getElementById(id);
+            const header = content ? content.previousElementSibling : null;
+            if (content) content.classList.toggle('hidden');
+            if (header) header.classList.toggle('expanded');
+        }
+
+        // Stop/cancel current AI response generation
+        function stopStreaming() {
+            if (currentAbortController) {
+                currentAbortController.abort();
+                console.log("stopStreaming:: Abort signal sent.");
+                unlockChatInput()
+                modelSpinner.classList.add("hidden");
+            }
+        }
+
+        // WebUI Functions ---------------------------------------------
+
+        // Set dark/light theme on startup from user preferences
+        function initTheme() {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+                themeName.textContent = 'Dark Mode';
+                themeIcon.innerHTML = moonIcon;
+                themeToggleBtn.classList.add('is-checked');
+            } else {
+                document.documentElement.classList.remove('dark');
+                themeName.textContent = 'Light Mode';
+                themeIcon.innerHTML = sunIcon;
+                themeToggleBtn.classList.remove('is-checked');
+            }
+            console.log("initTheme::Theme set to", document.documentElement.classList.contains('dark') ? "dark" : "light", "via", ('theme' in localStorage) ? "localStorage" : "system preferences.");
+        }
+
+        // Toggle theme between light/dark
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.theme = isDark ? 'dark' : 'light';
+            themeToggleBtn.classList.toggle('is-checked', isDark);
+
+            if (isDark) {
+                themeName.textContent = 'Dark Mode';
+                themeIcon.innerHTML = moonIcon;
+            }
+            else
+            {
+                themeName.textContent = 'Light Mode';
+                themeIcon.innerHTML = sunIcon;
+            }
+            console.log("toggleTheme::Theme toggled to", isDark ? "dark" : "light", "by user.");
+        }
+
+        // Apply selected font to the document
+        function applyFont(font) {
+            let fontFamily = "'Inter', system-ui, sans-serif";
+            if (font === 'Orbitron') fontFamily = "'Orbitron', sans-serif";
+            else if (font === 'Aurebesh') fontFamily = "'Aurebesh', sans-serif";
+            document.documentElement.style.setProperty('--font-main', fontFamily);
+        }
+
+        // Handle font selection change
+        function changeFont() {
+            const font = fontSelect.value;
+            localStorage.setItem('selectedFont', font);
+            applyFont(font);
+            console.log("changeFont:: Font updated to:", font);
+        }
+
+        // Save conversations to localStorage
+        function saveConversations() {
+            localStorage.setItem('conversations', JSON.stringify(conversations));
+            console.log("saveConversations::Conversations saved to localStorage:", conversations);
+        }
+
+        // Collapse/Expand Sidebar
+        function toggleSidebar() {
+            sidebar.classList.toggle('collapsed');
+        }
+
+        // Show/Hide Settings Overlay
+        async function toggleSettings(show) {
+            const overlay = document.getElementById('settings-overlay');
+            if (show) {
+                contextLengthAtModalOpen = contextLength;
+                overlay.classList.remove('hidden');
+                setTimeout(() => {
+                    overlay.classList.remove('opacity-0');
+                }, 10);
+            } else {
+                overlay.classList.add('opacity-0');
+                setTimeout(() => {
+                    overlay.classList.add('hidden');
+                }, 300);
+
+                // Trigger model reload if context length changed and a model is loaded
+                if (contextLengthAtModalOpen !== null && contextLength !== contextLengthAtModalOpen) {
+                    if (selectedModel) {
+                        await applySettingsChange();
+                    }
+                }
+                contextLengthAtModalOpen = null;
+            }
+        }
+
+        // Prevent user input
+        function lockChatInput() {
+            chatInput.classList.add("locked");
+            chatInput.disabled = true;
+            // Change Send button to Stop button
+            sendBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect></svg>';
+            sendBtn.classList.add("stop-mode");
+            sendBtn.title = "Stop generating";
+        }
+
+        // Enable user input
+        function unlockChatInput() {
+            chatInput.classList.remove("locked");
+            chatInput.disabled = false;
+            // Change Stop button back to Send button
+            sendBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>';
+            sendBtn.classList.remove("stop-mode");
+            sendBtn.title = "Send message";
+        }
+
+        // Messaging Functions -----------------------------------------
+
+        // Add user message to conversation and send input to llama-server
+        async function sendMessage() {
+            const inputText = chatInput.value.trim();
+            // Return early if no valid text or model selected
+            if (!inputText && pendingFiles.length === 0) return;
+            if (!selectedModel) {
+                alert("No model loaded. Please select a model in Settings.");
+                return;
+            }
+            console.log("sendMessage::Sending message:", inputText);
+
+            // If first message, create new conversation
+            if (!activeConversationId) {
+                // Generate conversation title: first 4 words + ...
+                const words = (inputText || "File Context").split(/\s+/);
+                const title = words.slice(0, 4).join(' ') + (words.length > 4 ? '...' : '');
+                
+                // ID conversations by timestamp
+                activeConversationId = Date.now().toString();
+                
+                // Add conversation to conversation history
+                conversations[activeConversationId] = {
+                    title: title,
+                    messages: []
+                };
+                appendConversationToSidebar(activeConversationId, title);
+            }
+
+            // Combine input text with pending file contents
+            let fullContent = inputText;
+            if (pendingFiles.length > 0) {
+                fullContent += "\n\n[Context from attached files]";
+                pendingFiles.forEach(file => {
+                    fullContent += `\n\nFile: ${file.name}\n\`\`\`\n${file.content}\n\`\`\``;
+                });
+            }
+
+            // Add user message to conversation history
+            const userMsg = { role: 'user', content: fullContent };
+            conversations[activeConversationId].messages.push(userMsg);
+            saveConversations();
+
+            // Render the user message, letting renderMessage handle displaying file attachments
+            renderMessage(userMsg, conversations[activeConversationId].messages.length - 1);
+
+            pendingFiles = []; // Clear attachments after sending
+            // Clear attachment notifications from UI
+            document.querySelectorAll('.attachment-msg').forEach(el => el.remove());
+
+            // Reset input
+            chatInput.value = '';
+            chatInput.style.height = 'auto';
+
+            // Prevent user input while model responds
+            lockChatInput();
+
+            // Begin streaming assistant response
+            await streamAssistantResponse(activeConversationId);
+
+            // Unlock user input after model is finished responding
+            unlockChatInput();
+        }
+
+        // Send user input to llama-server via backend /chat_stream endpoint and stream in response from llama-server
+        async function streamAssistantResponse(convId) {
+            const conversation = conversations[convId]; // This conversation object
+            
+            // If not a valid conversation, return early
+            if (!conversation) return;
+
+            const messages = conversation.messages; // This conversation's messages
+            console.log("streamAssistantResponse::Messages:", messages);
+
+            // Initialize AbortController for stopping the stream
+            currentAbortController = new AbortController();
+
+            // Create assistant message template object
+            let assistantMsg = { role: 'assistant', content: '', reasoning: '' };
+            let streamTarget = null;
+            let reasoningTarget = null;
+
+            modelSpinner.classList.remove("hidden"); // Start model spinner while LLM generates response
+
+            try {
+                // Send request to backend to forward to llama-server
+                const response = await fetch("/chat_stream", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    signal: currentAbortController.signal,
+                    body: JSON.stringify({
+                        model: selectedModel,
+                        messages: messages
+                    })
+                });
+
+                // Get streaming reader/decoder for text streaming of LLM responses
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder();
+                let buffer = "";
+
+                while (true) {
+                    const { value, done } = await reader.read();
+                    if (done) break;
+
+                    buffer += decoder.decode(value, { stream: true });
+                    const parts = buffer.split("\n\n");
+                    buffer = parts.pop();
+
+                    for (const part of parts) {
+                        let currentEventType = "message";
+                        const lines = part.split("\n");
+
+                        for (const line of lines) {
+                            if (line.startsWith("event: ")) {
+                                currentEventType = line.slice(7).trim();
+                                continue;
+                            }
+                            if (!line.startsWith("data: ")) continue;
+
+                            const data = line.slice(6).trim();
+                            if (!data) continue;
+
+                            if (data === "[DONE]") {
+                                modelSpinner.classList.add("hidden");
+
+                                // Fetch generation metrics to display
+                                let metrics = null;
+                                try {
+                                    const mRes = await fetch(`/llama_metrics?model=${encodeURIComponent(selectedModel)}`);
+                                    metrics = await mRes.json();
+                                } catch (e) {
+                                    console.warn("Metrics fetch failed", e);
+                                }
+
+                                if (assistantMsg.content || assistantMsg.reasoning) {
+                                    if (metrics && Object.keys(metrics).length > 0) assistantMsg.metrics = metrics;
+                                    conversation.messages.push(assistantMsg);
+                                }
+                                saveConversations();
+                                
+                                if (streamTarget && assistantMsg.metrics) {
+                                    const metricsHtml = renderMetricsHtml(assistantMsg.metrics);
+                                    if (metricsHtml) {
+                                        const tempDiv = document.createElement('div');
+                                        tempDiv.innerHTML = metricsHtml;
+                                        streamTarget.parentElement.appendChild(tempDiv.firstElementChild);
+                                    }
+                                }
+                                return;
+                            }
+
+                            try {
+                                const json = JSON.parse(data);
+
+                                if (currentEventType === "reasoning") {
+                                    const delta = json.content;
+                                    if (delta) {
+                                    if (!reasoningTarget && showReasoning) {
+                                            const rid = `reasoning-${Date.now()}`;
+                                            const rRow = document.createElement('div');
+                                            rRow.className = 'reasoning-block animate-in';
+                                            rRow.innerHTML = `
+                                                <div class="reasoning-header" onclick="toggleReasoning('${rid}')">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                                    <span>Assistant Reasoning</span>
+                                                </div>
+                                                <div id="${rid}" class="reasoning-content markdown-body hidden"></div>
+                                            `;
+                                            messagesContainer.appendChild(rRow);
+                                            reasoningTarget = document.getElementById(rid);
+                                            rRow.scrollIntoView({ behavior: 'smooth' });
+                                        }
+                                        assistantMsg.reasoning += delta;
+                                    if (reasoningTarget) reasoningTarget.innerHTML = marked.parse(assistantMsg.reasoning);
+                                    }
+                                    continue;
+                                }
+
+                                if (currentEventType === "tool_call_start") {
+                                    // Store tool call metadata to render once results arrive
+                                    assistantMsg.pendingTool = json;
+                                    continue;
+                                }
+
+                                if (currentEventType === "tool_call_result") {
+                                    const tool = assistantMsg.pendingTool;
+                                    if (!tool) continue;
+
+                                    // SYNC History: Assistant's turn (the one that called the tool)
+                                    conversation.messages.push({
+                                        role: 'assistant',
+                                        content: assistantMsg.content || null,
+                                        reasoning: assistantMsg.reasoning || null,
+                                        tool_calls: [{
+                                            id: tool.id,
+                                            type: 'function',
+                                            function: { name: tool.name, arguments: tool.arguments }
+                                        }]
+                                    });
+
+                                    // SYNC: Push the tool result message into local history
+                                    conversation.messages.push({
+                                        role: 'tool',
+                                        tool_call_id: tool.id,
+                                        content: json.result
+                                    });
+
+                                    // UI: Create the tool bubble now that we have the results
+                                    if (showToolCalls) {
+                                        const toolRow = document.createElement('div');
+                                        toolRow.className = 'message-row system-msg-row animate-in';
+                                        toolRow.innerHTML = `
+                                            <div class="avatar avatar-info">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                                            </div>
+                                            <div class="system-content">
+                                                <div class="system-header-row" style="display: flex; justify-content: space-between; align-items: center;">
+                                                    <p class="system-text">AI used tool: <b>${tool.name}</b></p>
+                                                    <button class="btn-ghost btn-toggle-file-content" onclick="toggleFileContent('${tool.id}')" title="Toggle tool output" style="width: 28px; height: 28px; padding: 0; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                                    </button>
+                                                </div>
+                                                <pre id="${tool.id}" class="file-content hidden">${escapeHtml(json.result)}</pre>
+                                            </div>
+                                        `;
+                                        messagesContainer.appendChild(toolRow);
+                                        toolRow.scrollIntoView({ behavior: 'smooth' });
+                                    }
+                                    
+                                    // IMPORTANT: We do NOT create a new bubble yet.
+                                    // We reset assistantMsg and let the next "message" event create the bubble.
+                                    streamTarget = null; 
+                                    reasoningTarget = null;
+                                    assistantMsg = { role: 'assistant', content: '', reasoning: '' };
+                                    
+                                    continue;
+                                }
+
+                                if (currentEventType === "message") {
+                                    const delta = json.choices?.[0]?.delta?.content;
+                                    if (delta) {
+                                        // If we don't have a target bubble (e.g. after a tool result), create one
+                                        if (!streamTarget) {
+                                            const nextStreamId = `stream-${convId}-${conversation.messages.length}`;
+                                            const nextRow = document.createElement('div');
+                                            nextRow.className = 'message-row animate-in';
+                                            nextRow.innerHTML = `
+                                                <div class="avatar avatar-bot">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8" y2="16"></line><line x1="16" y1="16" x2="16" y2="16"></line></svg>
+                                                </div>
+                                                <div class="message-content"><div id="${nextStreamId}" class="markdown-body"></div></div>
+                                            `;
+                                            messagesContainer.appendChild(nextRow);
+                                            streamTarget = document.getElementById(nextStreamId);
+                                            nextRow.scrollIntoView({ behavior: 'smooth' });
+                                        }
+                                        
+                                        assistantMsg.content += delta;
+                                        streamTarget.innerHTML = marked.parse(assistantMsg.content);
+                                    }
+                                }
+                            } catch (err) {
+                                // If it's not JSON, it might be raw text or [DONE] handled above
+                            }
+                        }
+                    }
+                }
+            } catch (err) {
+                if (err.name === 'AbortError') {
+                    console.log("streamAssistantResponse:: Stream aborted by user.");
+                } else {
+                    console.error("streamAssistantResponse:: Fetch error:", err);
+                    appendSystemMessage("Connection error while streaming response.");
+                }
+            } finally {
+                currentAbortController = null;
+            }
+        }
+
+        // Render message in the chat window (user-only unless LLM streaming is disabled)
+        function renderMessage(msg, index) {
+            // Create row for new message
+            const row = document.createElement('div');
+            row.className = 'message-row animate-in' + (msg.role === 'tool' ? ' system-msg-row' : '');
+            
+            // Attach context menu listener for user messages only
+            if (msg.role === 'user') {
+                row.oncontextmenu = (e) => showMsgContextMenu(e, index);
+            }
+            
+            if (msg.role === 'user') {
+                let displayContent = msg.content;
+                let fileAttachments = [];
+                const contextMarker = "\n\n[Context from attached files]";
+                // Regex to find "File: filename\n```\ncontent\n```" blocks
+                const fileRegex = /File: (.*?)\n```\n([\s\S]*?)\n```/g;
+
+                if (msg.content.includes(contextMarker)) {
+                    const parts = msg.content.split(contextMarker);
+                    displayContent = parts[0].trim(); // This is the original inputText
+
+                    let match;
+                    while ((match = fileRegex.exec(parts[1])) !== null) {
+                        fileAttachments.push({
+                            name: match[1],
+                            content: match[2]
+                        });
+                    }
+                }
+
+                let filesHtml = '';
+                if (fileAttachments.length > 0) {
+                    filesHtml += `<div class="attached-files-summary">Sent ${fileAttachments.length} file(s) as context.</div>`;
+                    fileAttachments.forEach((file, fileIdx) => {
+                        const fileId = `file-content-${index}-${fileIdx}`;
+                        const isMarkdown = file.name.toLowerCase().endsWith('.md');
+                        // Render content with marked if it's a markdown file, otherwise escape HTML
+                        const renderedContent = isMarkdown ? marked.parse(file.content) : escapeHtml(file.content);
+                        const contentClass = isMarkdown ? 'markdown-body' : 'file-content';
+                        
+                        filesHtml += `
+                            <div class="attached-file-item">
+                                <span class="file-name">${file.name}</span>
+                                <button class="btn-ghost btn-toggle-file-content" onclick="toggleFileContent('${fileId}')" title="Toggle file content" style="width: 28px; height: 28px; padding: 0; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                </button>
+                                <div id="${fileId}" class="${contentClass} hidden">${renderedContent}</div>
+                            </div>
+                        `;
+                    });
+                }
+
+                let reasoningHtml = '';
+                if (msg.reasoning && showReasoning) {
+                    const rid = `reasoning-hist-${index}`;
+                    reasoningHtml = `
+                        <div class="reasoning-block">
+                            <div class="reasoning-header" onclick="toggleReasoning('${rid}')">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                <span>Assistant Reasoning</span>
+                            </div>
+                            <div id="${rid}" class="reasoning-content markdown-body hidden">${marked.parse(msg.reasoning)}</div>
+                        </div>
+                    `;
+                }
+
+                row.innerHTML = `
+                    <div class="avatar avatar-info">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </div>
+                    <div class="message-content">
+                        ${displayContent ? `<p>${displayContent}</p>` : ''}
+                        ${reasoningHtml}
+                        ${filesHtml}
+                    </div>
+                `;
+            } else if (msg.role === 'tool') {
+                if (!showToolCalls) return;
+                // For tool results, we look at the previous assistant message to find the tool name
+                const conversation = conversations[activeConversationId];
+                const prevMsg = conversation.messages[index - 1];
+                let toolName = "Tool";
+                if (prevMsg && prevMsg.tool_calls && prevMsg.tool_calls[0]) {
+                    toolName = prevMsg.tool_calls[0].function.name;
+                }
+                const toolId = `tool-content-${index}`;
+
+                row.innerHTML = `
+                    <div class="avatar avatar-info">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    </div>
+                    <div class="system-content">
+                        <div class="system-header-row" style="display: flex; justify-content: space-between; align-items: center;">
+                            <p class="system-text">AI used tool: <b>${toolName}</b></p>
+                            <button class="btn-ghost" onclick="toggleFileContent('${toolId}')" title="Toggle tool output" style="width: 28px; height: 28px; padding: 0; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                        </div>
+                        <pre id="${toolId}" class="file-content hidden">${escapeHtml(msg.content)}</pre>
+                    </div>
+                `;
+            } else if (msg.role === 'assistant' && !msg.content && !msg.reasoning) {
+                // Tool-call-only turn: no text to display; the tool bubble below handles it
+            } else if (msg.role === 'assistant' && !msg.content && (!msg.reasoning || !showReasoning) && (!msg.metrics || Object.keys(msg.metrics).length === 0)) {
+                // Tool-call-only turn: no text to display (or hidden by settings); the tool bubble below handles it
+                return;
+            } else {
+                // Standard Assistant Message
+                let reasoningHtml = '';
+                if (msg.reasoning && showReasoning) {
+                    const rid = `reasoning-hist-${index}`;
+                    reasoningHtml = `
+                        <div class="reasoning-block">
+                            <div class="reasoning-header" onclick="toggleReasoning('${rid}')">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                <span>Assistant Reasoning</span>
+                            </div>
+                            <div id="${rid}" class="reasoning-content markdown-body hidden">${marked.parse(msg.reasoning)}</div>
+                        </div>
+                    `;
+                }
+
+                row.innerHTML = `
+                    <div class="avatar avatar-bot">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8" y2="16"></line><line x1="16" y1="16" x2="16" y2="16"></line></svg>
+                    </div>
+                    <div class="message-content">
+                        ${reasoningHtml}
+                        ${msg.content ? `<div class="markdown-body">${marked.parse(msg.content)}</div>` : ''}
+                        ${renderMetricsHtml(msg.metrics)}
+                    </div>
+                `;
+            }
+
+            // Add row to message container, scroll to response
+            messagesContainer.appendChild(row);
+            row.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Append info message to chat window
+        function appendSystemMessage(text, fileName = null) {            
+            // Create row for new info message
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'message-row system-msg-row animate-in' + (fileName ? ' attachment-msg' : '');
+            msgDiv.style.display = 'flex';
+            msgDiv.style.gap = '1rem';
+            msgDiv.style.alignItems = 'center';
+
+            // Add html for info message (avatar bubble and message contents)
+            let innerHTML = `
+                <div class="avatar avatar-info">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                </div>
+                <div class="system-content" style="display: flex; align-items: center; width: 100%; gap: 0.5rem;">
+                    <p style="font-size: 0.875rem; color: var(--text-muted); font-style: italic; margin: 0; flex-grow: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${text}</p>
+            `;
+
+            if (fileName) {
+                innerHTML += `
+                    <button class="btn-ghost" onclick="removeAttachment('${fileName.replace(/'/g, "\\'")}', this.closest('.message-row'))" style="padding: 0; height: 24px; width: 24px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border-radius: 4px;" title="Remove attachment">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                `;
+            }
+
+            innerHTML += `</div>`;
+            msgDiv.innerHTML = innerHTML;
+
+            // Add row to message container, scroll to response
+            messagesContainer.appendChild(msgDiv);
+            msgDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Init chat window to new conversation
+        function startNewConversation() {
+            // Set active conversation to null
+            activeConversationId = null;
+            
+            // Reset html of chat window to welcome message
+            messagesContainer.innerHTML = `
+                <div class="message-row">
+                    <div class="avatar avatar-bot">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8" y2="16"></line><line x1="16" y1="16" x2="16" y2="16"></line></svg>
+                    </div>
+                    <div class="message-content">
+                        <p>Welcome, Trooper! I'm your <b>SWBF2 Modding Assistant</b>. I can help you with ODF properties, lua scripting, or level-creation for your mods. How can I assist?</p>
+                        <div id="suggestions-container" class="suggestion-grid"></div>
+                    </div>
+                </div>
+            `;
+
+            // Reset chat input to empty
+            chatInput.value = '';
+            chatInput.style.height = 'auto';
+        }
+
+        // Load conversation into chat window
+        function loadConversation(id) {
+            const conversation = conversations[id];
+            if (!conversation) return; // If not a valid conversation return early
+
+            activeConversationId = id; // Set active conversation
+            messagesContainer.innerHTML = ''; // Clear chat window
+
+            // Render each message from this conversation
+            conversation.messages.forEach((msg, idx) => renderMessage(msg, idx));
+            
+            // Highlight active conversation from conversation history items
+            document.querySelectorAll('.history-item').forEach(el => el.classList.remove('active'));
+            const sidebarItem = historyList.querySelector(`[data-conv-id="${id}"]`);
+            if (sidebarItem) sidebarItem.classList.add('active');
+            console.log("loadConversation::Conversation loaded:", conversation);
+        }
+
+        // Conversations Context Menu Functions --------------------------------
+
+        // Show conversation context menu on right-click of a conversation history item in sidebar
+        function showContextMenu(event, id) {
+            event.preventDefault(); // Prevent default right-click menu
+            event.stopPropagation(); // Stop event from bubbling up to window click listener
+            menuTargetId = id;
+
+            // Show sidebar items, hide message items
+            document.getElementById('menu-sidebar-items').classList.remove('hidden');
+            document.getElementById('menu-message-items').classList.add('hidden');
+
+            // Position context menu relative to the click
+            contextMenu.style.top = `${event.clientY}px`;
+            contextMenu.style.left = `${event.clientX}px`;
+
+            // Show conversation context menu
+            contextMenu.classList.remove('hidden');
+        }
+
+        // Hide conversation context menu
+        function hideContextMenu() {
+            contextMenu.classList.add('hidden');
+        }
+
+        // Show context menu for a specific message
+        function showMsgContextMenu(event, index) {
+            const conversation = conversations[activeConversationId];
+            if (!conversation || chatInput.disabled) return;
+
+            // Only allow editing/deleting the VERY LAST user message to maintain history logic
+            let lastUserIdx = -1;
+            for (let i = conversation.messages.length - 1; i >= 0; i--) {
+                if (conversation.messages[i].role === 'user') {
+                    lastUserIdx = i;
+                    break;
+                }
+            }
+
+            if (index !== lastUserIdx) return;
+
+            event.preventDefault();
+            event.stopPropagation();
+            menuTargetMsgIndex = index;
+
+            // Show message items, hide sidebar items
+            document.getElementById('menu-sidebar-items').classList.add('hidden');
+            document.getElementById('menu-message-items').classList.remove('hidden');
+
+            contextMenu.style.top = `${event.clientY}px`;
+            contextMenu.style.left = `${event.clientX}px`;
+            contextMenu.classList.remove('hidden');
+        }
+
+        // Handle editing the selected message
+        function handleEditMsgClick(e) {
+            if (e) e.stopPropagation();
+            hideContextMenu();
+
+            const conversation = conversations[activeConversationId];
+            if (!conversation || menuTargetMsgIndex === null) return;
+
+            const msg = conversation.messages[menuTargetMsgIndex];
+            const content = msg.content;
+
+            // Delete the original message and following response to allow re-sending
+            deleteMessageAndFollowUps(menuTargetMsgIndex);
+
+            // Re-populate the input field AFTER delete logic runs (which may reset the UI)
+            chatInput.value = content;
+            chatInput.focus();
+            chatInput.style.height = 'auto';
+            chatInput.style.height = chatInput.scrollHeight + 'px';
+        }
+
+        // Handle deleting the selected message
+        function handleDeleteMsgClick(e) {
+            if (e) e.stopPropagation();
+            hideContextMenu();
+            deleteMessageAndFollowUps(menuTargetMsgIndex);
+        }
+
+        // Delete message at index and all messages following it
+        function deleteMessageAndFollowUps(index) {
+            const conversation = conversations[activeConversationId];
+            if (!conversation) return;
+
+            conversation.messages.splice(index);
+            
+            if (conversation.messages.length === 0) {
+                const idToDelete = activeConversationId;
+                startNewConversation();
+                
+                // Clean up the empty conversation from storage and sidebar
+                const item = historyList.querySelector(`[data-conv-id="${idToDelete}"]`);
+                if (item) item.remove();
+                delete conversations[idToDelete];
+                saveConversations();
+            } else {
+                saveConversations();
+                loadConversation(activeConversationId);
+            }
+        }
+
+        // Remove a specific pending attachment
+        function removeAttachment(fileName, element) {
+            const index = pendingFiles.findIndex(f => f.name === fileName);
+            if (index !== -1) {
+                pendingFiles.splice(index, 1);
+            }
+            element.remove();
+        }
+
+        // Renaming Conversation Functions -------------------------------------
+
+        // Hide conversation renaming modal
+        function hideRenameModal() {
+            renameModalOverlay.classList.add('opacity-0');
+            setTimeout(() => renameModalOverlay.classList.add('hidden'), 300);
+        }
+
+        // Show conversation renaming modal on rename conversation context menu option click
+        function handleRenameClick(e) {
+            // Override event propagation and hide conversation context menu
+            if (e) e.stopPropagation();
+            hideContextMenu();
+
+            // Expand sidebar if collapsed for renaming
+            if (sidebar.classList.contains('collapsed')) {
+                toggleSidebar(); // Expand sidebar if collapsed
+            }
+
+            // Get conversation object by ID
+            const conversation = conversations[menuTargetId];
+            if (!conversation) return;
+
+            // Show the rename modal and focus the input
+            renameInput.value = conversation.title;
+            renameModalOverlay.classList.remove('hidden');
+            renameInput.focus();
+            renameInput.select();
+        }
+
+        // Rename conversation title on confirming
+        function confirmRename() {
+            const newTitle = renameInput.value.trim();
+            if (newTitle) {
+                console.log("confirmRename::Conversation", conversations[menuTargetId].title, "renamed to", newTitle);
+                conversations[menuTargetId].title = newTitle;
+                updateSidebarTitle(menuTargetId, newTitle);
+                saveConversations();
+            }
+            // Cancel if invalid new title
+            cancelRename();
+        }
+
+        // Cancel renaming, hide conversation renaming modal
+        function cancelRename() {
+            renameModalOverlay.classList.add('hidden');
+        }
+
+        // Sidebar Functions ---------------------------------------------------
+
+        // Add new conversation to the sidebar conversation history list
+        function appendConversationToSidebar(id, title) {
+            // Create new conversation history item
+            const item = document.createElement('div');
+            item.className = "history-item";
+            item.setAttribute('data-conv-id', id);
+            
+            // Load conversation into chat window when clicked
+            item.onclick = () => loadConversation(id);
+            
+            // Right click listener for deleting/renaming
+            item.oncontextmenu = (e) => {
+                e.preventDefault();
+                showContextMenu(e, id);
+            };
+
+            // Add html for conversation icon and title
+            item.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                <span>${title}</span>
+            `;
+
+            // Add item to sidebar (newest first, under the label)
+            const label = historyList.querySelector('.history-label');
+            if (label) label.after(item);
+            else historyList.prepend(item);
+        }
+
+        // Delete conversation on deleting conversation context menu option click
+        function handleDeleteClick(e) {
+            // Override event propagation and hide conversation context menu
+            if (e) e.stopPropagation();
+            hideContextMenu();
+            
+            // Prompt user for deletion confirmation
+            if (confirm("Are you sure you want to delete this conversation?")) {
+                console.log("handleDeleteClick:: Conversation", conversations[menuTargetId].title, "deleted.");
+                const item = historyList.querySelector(`[data-conv-id="${menuTargetId}"]`);
+                if (item) item.remove();
+                delete conversations[menuTargetId];
+                saveConversations();
+                
+                // If deleting current conversation, start new conversation
+                if (activeConversationId === menuTargetId) {
+                    startNewConversation();
+                }
+            }
+        }
+
+        // Update conversation title in sidebar
+        function updateSidebarTitle(id, title) {
+            const item = historyList.querySelector(`[data-conv-id="${id}"] span`);
+            if (item) item.textContent = title;
+        }
+
+        // Conversation Management Functions -----------------------------------
+
+        function exportConversations() {
+            const dataStr = JSON.stringify(conversations, null, 2);
+            const blob = new Blob([dataStr], { type: "application/json" });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `swbf2-assistant-conversations-${new Date().toISOString().slice(0, 10)}.json`;
+            link.click();
+            URL.revokeObjectURL(url);
+            console.log("exportConversations:: History exported as JSON.");
+        }
+
+        function importConversations() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.json';
+            input.onchange = e => {
+                const file = e.target.files[0];
+                const reader = new FileReader();
+                reader.onload = event => {
+                    try {
+                        const imported = JSON.parse(event.target.result);
+                        if (imported && typeof imported === 'object' && !Array.isArray(imported)) {
+                            // Merge imported conversations into current local cache
+                            conversations = { ...conversations, ...imported };
+                            saveConversations();
+                            refreshHistoryList();
+                            alert("Conversations imported and merged successfully.");
+                        } else {
+                            throw new Error("Invalid format. Expected a JSON object of conversations.");
+                        }
+                    } catch (err) {
+                        console.error("importConversations:: Failed:", err);
+                        alert("Failed to import conversations: " + err.message);
+                    }
+                };
+                reader.readAsText(file);
+            };
+            input.click();
+        }
+
+        function refreshHistoryList() {
+            const label = historyList.querySelector('.history-label');
+            historyList.innerHTML = '';
+            if (label) historyList.appendChild(label);
+            
+            // Re-populate from current conversations object
+            Object.keys(conversations).sort().forEach(id => {
+                appendConversationToSidebar(id, conversations[id].title);
+            });
+        }
+
+        function deleteAllConversations() {
+            if (confirm("Are you sure you want to delete ALL conversations? This action cannot be undone.")) {
+                conversations = {};
+                saveConversations();
+                refreshHistoryList();
+                startNewConversation();
+                console.log("deleteAllConversations:: All history cleared.");
+            }
+        }
+
+        // LLM Model Functions ----------------------------------------------------
+        
+        // Toggle LLM model auto-loading on app startup
+        function toggleAutoLoad()
+        {
+            loadModelOnStartup = !loadModelOnStartup;
+            localStorage.setItem("loadModelOnStartup", JSON.stringify(loadModelOnStartup));
+            autoLoadToggleBtn.classList.toggle('is-checked', loadModelOnStartup);
+            console.log("toggleAutoload:: Model Auto-Loading: ", loadModelOnStartup);
+        }
+
+        function toggleShowToolCalls() {
+            showToolCalls = !showToolCalls;
+            localStorage.setItem("showToolCalls", JSON.stringify(showToolCalls));
+            showToolCallsToggleBtn.classList.toggle('is-checked', showToolCalls);
+            if (activeConversationId) loadConversation(activeConversationId);
+        }
+
+        function toggleShowReasoning() {
+            showReasoning = !showReasoning;
+            localStorage.setItem("showReasoning", JSON.stringify(showReasoning));
+            showReasoningToggleBtn.classList.toggle('is-checked', showReasoning);
+            if (activeConversationId) loadConversation(activeConversationId);
+        }
+
+        // GET backend /chat_models endpoint for available models and ensure selected model is loaded in llama-server
+        async function loadModels() {
+            // Show model loading spinner and prevent user input until loaded
+            modelSpinner.classList.remove("hidden");
+            lockChatInput();
+
+            try {
+                // 1. Fetch available models
+                const res = await fetch("/chat_models");
+                const data = await res.json();
+
+                allModelsData = data.models; // Cache metadata locally
+
+                const modelList = document.getElementById("model-list");
+                modelList.innerHTML = "";
+
+                const availableIds = data.models.map(m => m.id);
+                console.log("lodadModels:: Available models:", data.models.map(m => m.id));
+
+                // Render cards
+                data.models.forEach(model => {
+                    const card = document.createElement("div");
+                    card.className = "model-card";
+                    card.onclick = () => selectModel(model.id, card);
+
+                    // Replace "GGUF Model" with context length or "Unknown"
+                    const metaText = model.max_context ? `Max Context Length: ${model.max_context.toLocaleString()} tokens` : "Unknown Context Limit";
+
+                    card.innerHTML = `
+                        <div>
+                            <p class="model-name">${model.id}</p>
+                            <p class="model-meta">${metaText}</p>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                        </svg>
+                    `;
+
+                    modelList.appendChild(card);
+                });
+
+                // 2. Get saved model
+                const savedModel = localStorage.getItem("lastModel");
+                console.log("loadModels:: Last loaded model:", savedModel);
+
+                // 3. Query llama-server for currently loaded model
+                const currentRes = await fetch("/chat_current_model");
+                const currentData = await currentRes.json();
+                const currentlyLoaded = currentData.loaded[0] || null;
+
+                let modelToLoad = null;
+
+                if (savedModel && availableIds.includes(savedModel)) {
+                    modelToLoad = savedModel;
+                } else {
+                    modelToLoad = availableIds[0];
+                }
+
+                // 4. If llama-server already loaded the correct model, just update UI
+                if (currentlyLoaded === modelToLoad) {
+                    selectedModel = modelToLoad;
+                    document.getElementById("modelName").textContent = modelToLoad;
+
+                    // Update context limit based on metadata
+                    const modelInfo = allModelsData.find(m => m.id === modelToLoad);
+                    if (modelInfo && modelInfo.max_context) {
+                        contextLengthInput.max = modelInfo.max_context;
+                        if (contextLength > modelInfo.max_context) {
+                            contextLength = modelInfo.max_context;
+                            contextLengthInput.value = contextLength;
+                            localStorage.setItem('contextLength', contextLength);
+                        }
+                    }
+
+                    const card = [...modelList.children].find(
+                        c => c.querySelector(".model-name").textContent === modelToLoad
+                    );
+                    if (card) card.classList.add("active");
+                    modelSpinner.classList.add("hidden");
+                    unlockChatInput();
+                    console.log("loadModels:: Model ", selectedModel, "loaded.");
+                    return;
+                }
+
+                // 5. Otherwise, load the correct model if autoloading enabled
+                if (loadModelOnStartup) {
+                    const card = [...modelList.children].find(
+                        c => c.querySelector(".model-name").textContent === modelToLoad
+                    );
+                    if (card) {
+                        await selectModel(modelToLoad, card);
+                        modelSpinner.classList.add("hidden");
+                        unlockChatInput();
+                        console.log("loadModels:: Model ", modelToLoad, "loaded.");
+                    }
+                }
+                else
+                {
+                    modelSpinner.classList.add("hidden");
+                }
+
+            } catch (err) {
+                console.error("Failed to load models:", err);
+            }
+        }
+
+        // Re-loads the active model with updated context length
+        async function applySettingsChange() {
+            if (!selectedModel) return;
+
+            lockChatInput();
+            modelSpinner.classList.remove("hidden");
+
+            try {
+                console.log("applySettingsChange:: Applying context length change:", contextLength);
+                const res = await fetch("/chat_load_model", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ 
+                        model: selectedModel, 
+                        user_ctx: contextLength
+                    })
+                });
+
+                const data = await res.json();
+                if (!data.ok) throw new Error(data.error || "Model settings update failed");
+
+                await waitForModelToLoad(selectedModel);
+                console.log("applySettingsChange:: Model reloaded with new context length:", contextLength);
+            } catch (err) {
+                console.error("Error applying settings change:", err);
+                alert("Failed to apply context length change:\n" + err.message);
+            } finally {
+                modelSpinner.classList.add("hidden");
+                unlockChatInput();
+            }
+        }
+
+        // Select LLM model for loading by llama-server
+        async function selectModel(modelId, card) {
+            lockChatInput();
+
+            modelSpinner.classList.remove("hidden");
+
+            // UI highlight immediately
+            document.querySelectorAll(".model-card").forEach(c => c.classList.remove("active"));
+            card.classList.add("active");
+
+            // Optimistically show name
+            document.getElementById("modelName").textContent = modelId;
+
+            // Update input max based on model metadata
+            const modelInfo = allModelsData.find(m => m.id === modelId);
+            if (modelInfo && modelInfo.max_context) {
+                contextLengthInput.max = modelInfo.max_context;
+                // Clamp current setting if it exceeds model's trained max
+                if (contextLength > modelInfo.max_context) {
+                    contextLength = modelInfo.max_context;
+                    contextLengthInput.value = contextLength;
+                    localStorage.setItem('contextLength', contextLength);
+                }
+            }
+
+            try {
+                // Kick off load request
+                const res = await fetch("/chat_load_model", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ 
+                        model: modelId,
+                        user_ctx: contextLength
+                    })
+                });
+
+                const data = await res.json();
+                if (!data.ok) {
+                    throw new Error(data.error || "Model load failed");
+                }
+
+                // Now poll until llama-server reports the model is loaded
+                await waitForModelToLoad(modelId);
+
+                // Success
+                selectedModel = modelId;
+                localStorage.setItem("lastModel", modelId);
+                console.log("selectModel:: Model ", modelId, "set as last loaded model in localStorage.");
+
+            } catch (err) {
+                console.error("Error loading model:", err);
+                selectedModel = null;
+                document.getElementById("modelName").textContent = "No Model Loaded";
+                card.classList.remove("active");
+                alert("Failed to load model:\n" + err.message);
+            } finally {
+                modelSpinner.classList.add("hidden");
+                unlockChatInput();
+            }
+        }
+
+        // Poll backend /chat_current_model endpoint for llama-server model load status
+        async function waitForModelToLoad(modelId) {
+            lockChatInput();
+            const maxAttempts = 200; // ~100 seconds at 500ms
+            let attempts = 0;
+
+            while (attempts < maxAttempts) {
+                const res = await fetch("/chat_current_model");
+                const data = await res.json();
+
+                const loaded = data.loaded || [];
+
+                if (loaded.includes(modelId)) {
+                    unlockChatInput();
+                    return; // Model is fully loaded
+                }
+
+                await new Promise(resolve => setTimeout(resolve, 500));
+                attempts++;
+            }
+
+            throw new Error("Model did not finish loading in time");
+        }
+
+        // Poll backend /llama_health endpoint for llama-server status
+        async function pollLlamaStatus() {
+            try {
+                const res = await fetch("/llama_health");
+                const data = await res.json();
+
+                const dot = document.getElementById("llamaStatusDot");
+                const text = document.getElementById("llamaStatusText");
+
+                if (data.status === "online") {
+                    dot.className = "status-dot online";
+                    text.textContent = "Online";
+                } else if (data.status === "error") {
+                    dot.className = "status-dot busy";
+                    text.textContent = "Busy";
+                } else {
+                    dot.className = "status-dot offline";
+                    text.textContent = "Offline";
+                }
+            } catch (err) {
+                const dot = document.getElementById("llamaStatusDot");
+                const text = document.getElementById("llamaStatusText");
+                dot.className = "status-dot offline";
+                text.textContent = "Offline";
+            }
+        }
+
+        // Poll llama-server for status every 4 seconds
+        setInterval(pollLlamaStatus, 4000);
+
+        /**
+         * Fetches a local markdown file, renders it via marked, and opens it in a new tab
+         * with the app's styling and math support.
+         */
+        async function openMarkdownInNewTab(url) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Failed to fetch document');
+                const content = await response.text();
+                const renderedHtml = marked.parse(content);
+                const isDark = document.documentElement.classList.contains('dark');
+                const font = getComputedStyle(document.documentElement).getPropertyValue('--font-main');
+                
+                const newWin = window.open('', '_blank');
+                newWin.document.write(`
+                    <!DOCTYPE html>
+                    <html class="${isDark ? 'dark' : ''}">
+                    <head>
+                        <title>${url.split('/').pop()}</title>
+                        <link rel="stylesheet" href="styles.css">
+                        <link rel="stylesheet" href="katex.min.css">
+                        <style>
+                            :root { --font-main: ${font}; }
+                            body {
+                                padding: 40px;
+                                max-width: 900px;
+                                margin: 0 auto;
+                                background-color: var(--bg-main); /* Corrected variable to use defined background */
+                                color: var(--text-main);
+                                overflow-y: auto; /* Enable scrolling for content */
+                                height: auto; /* Allow body height to adjust to content */
+                                transition: none; /* Remove color/background transitions */
+                            }
+                        </style>
+                    </head>
+                    <body class="markdown-body">
+                        ${renderedHtml}
+                    </body>
+                    </html>
+                `);
+                newWin.document.close();
+            } catch (err) {
+                console.error("openMarkdownInNewTab error:", err);
+                window.open(url, '_blank'); // Fallback to raw browser view
+            }
+        }
+
+        // App initialization --------------------------------------------------
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize markdown options
+            if (window.marked) {
+            // Add KaTeX extension for LaTeX math support (e.g., symbols like $\rightarrow$)
+            if (window.markedKatex) {
+                marked.use(window.markedKatex({ throwOnError: false }));
+            }
+
+                const renderer = new marked.Renderer();
+                
+                // Custom link renderer to render local markdown docs in a new tab using marked
+                renderer.link = ({href, title, text}) => {
+                    const titleAttr = title ? ` title="${title}"` : '';
+                    const isMarkdown = href.toLowerCase().endsWith('.md');
+                    const isExternal = href.startsWith('http') || href.startsWith('//');
+
+                    if (isMarkdown && !isExternal) {
+                        return `<a href="javascript:void(0)" onclick="openMarkdownInNewTab('${href.replace(/'/g, "\\'")}')"${titleAttr}>${text}</a>`;
+                    }
+                    return `<a href="${href}"${titleAttr} target="_blank" rel="noopener noreferrer">${text}</a>`;
+                };
+
+                renderer.code = ({text, lang}) => {
+                    return `
+                        <div class="code-block-container">
+                            <button class="copy-code-btn" onclick="copyCode(this)">Copy</button>
+                            <pre><code class="language-${lang || ''}">${text}</code></pre>
+                        </div>
+                    `;
+                };
+                marked.setOptions({
+                    renderer: renderer,
+                    gfm: true,
+                    breaks: true
+                });
+            }
+
+            // Set dark/light theme initially
+            initTheme();
+
+            // Initialize font from localStorage
+            const savedFont = localStorage.getItem('selectedFont') || 'default';
+            fontSelect.value = savedFont;
+            applyFont(savedFont);
+
+            // Load existing conversations into sidebar
+            Object.keys(conversations).sort().forEach(id => {
+                appendConversationToSidebar(id, conversations[id].title);
+            });
+
+            // Check llama-server for status
+            pollLlamaStatus();
+            
+            // Load model list and optionally selected model
+            loadModels();
+        });
+    </script>
+</body>
+</html>
