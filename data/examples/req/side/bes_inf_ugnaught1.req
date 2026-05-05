@@ -1,0 +1,13 @@
+ucft
+{
+	REQN
+	{
+		"class"
+		"bes_inf_ugnaught1"
+	}
+	REQN
+	{
+		"config"
+		"extraweapons"
+	}
+}

@@ -1,0 +1,20 @@
+ucft
+{
+	REQN
+	{
+		"lvl"
+		"bes_bldg_aa_turret"
+		"bes_fly_cloudcar"
+		"bes_fly_cloudcar_ea"
+		"bes_inf_ugnaught1"
+		"bes_inf_ugnaught2"
+		"cis_fly_maf"
+		"dark"
+	}
+	REQN
+	{
+		"model"
+		"bes_1st_cockpit_cloudcar"
+		"cis_1st_cockpit_maf"
+	}
+}
