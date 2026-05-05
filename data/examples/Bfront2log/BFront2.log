@@ -1,0 +1,1185 @@
+Opened logfile BFront2.log  2026-04-15 1452
+Remaster v1.5 r2
+shell_interface: Entered
+shell_interface: gPlatformStr, gOnlineServiceStr, gLangStr, gLangEnum:     PC    GameSpy    english    0
+ifs_era_handler - Entered
+ifs_era_handler - Exited
+Remaster: ui upgrade complete
+
+shell_interface: No custom_gc_0.lvl
+shell_interface: No custom_gc_1.lvl
+shell_interface: No custom_gc_2.lvl
+shell_interface: No custom_gc_3.lvl
+shell_interface: No custom_gc_4.lvl
+shell_interface: No custom_gc_5.lvl
+shell_interface: No custom_gc_6.lvl
+shell_interface: No custom_gc_7.lvl
+shell_interface: Found custom_gc_8.lvl
+custom_gc_8: Entered ANF GC
+Entered ifs_freeform_init_ANF.lua
+ANF_Utilities Loaded...
+Entered ifs_freeform_start_ANF.lua
+custom_gc_8: Taking control of custom_GetGCButtonList()...
+custom_gc_8: Taking control of custom_PressedGCButton()...
+custom_gc_8: Exited ANF GC
+shell_interface: No custom_gc_9.lvl
+shell_interface: Found custom_gc_10.lvl
+custom_gc_10: Entered
+custom_gc_10: No custom_gc_11.lvl.  Will stop searching for any more cGC scripts.
+custom_gc_10: Exited
+custom_EraButtonList(): Finished building era button table    Known eras buttons: 28
+custom_GetGMapEras(): Finished building era table    Known eras: 28
+custom_GetGMapModes(): Finished building game mode table    Known Modes: 39
+custom_SetMovieLocation()
+custom_gc_8: custom_GetGCButtonList(): Entered
+custom_GetGCButtonList()
+custom_gc_8: custom_GetGCButtonList(): Exited
+custom_gc_8: custom_GetGCButtonList(): Entered
+custom_GetGCButtonList()
+custom_gc_8: custom_GetGCButtonList(): Exited
+custom_SetMovieLocation()
+ANF: Our GC Main has been patched through!
+custom_GetFreeformBattleModeList(): Finished building freeform battle mode list    Known Modes: 39
+ANF: Our GC Battlemode has been patched through!
+Calrissian97 Sends his Regards!
+ingame stream    movies\crawl.mvs
+shell_interface: Opening movie:    movies\shell.mvs
+shell_interface: Leaving
+Mission Checker: Entered addme
+Mission Checker: addme: Now listening in on AddDownloadableContent() calls
+Mission Checker: Exited addme
+A New Frontier: Jakku Found!
+ifs_saveop_DoOps     LoadFileList
+ifs_saveop_DoOps     LoadFileList
+ifs_saveop_DoOps     LoadMetagame
+ifs_saveop_DoOps     LoadMetagame
+
+Read Item 1:
+{
+	["scripts_IF"]={
+	},
+	["scripts_OP"]={
+	},
+	["data"]={
+		["awardEffects"]=1.000000,
+		["awardWeapons"]=1.000000,
+		["saveSpOptions"]=2.000000,
+		["aihero"]=2.000000,
+		["heroVO"]=2.000000,
+		["customColor"]=2.000000,
+	},
+	["scripts_GT"]={
+		[1.000000]="REMA",
+	},
+	["themeIdx"]=1.000000,
+	["qs"]={
+		[1.000000]={
+			["buttonStrings"]={
+				[1.000000]="No",
+				[2.000000]="Yes",
+			},
+			["default"]=2.000000,
+			["tag"]="aihero",
+		},
+		[2.000000]={
+			["buttonStrings"]={
+				[1.000000]="No",
+				[2.000000]="Yes",
+			},
+			["default"]=2.000000,
+			["tag"]="heroVO",
+		},
+		[3.000000]={
+			["buttonStrings"]={
+				[1.000000]="Off",
+				[2.000000]="On",
+			},
+			["default"]=2.000000,
+			["tag"]="customColor",
+		},
+		[4.000000]={
+			["buttonStrings"]={
+				[1.000000]="Off",
+				[2.000000]="On",
+			},
+			["default"]=1.000000,
+			["tag"]="awardEffects",
+		},
+		[5.000000]={
+			["buttonStrings"]={
+				[1.000000]="Off",
+				[2.000000]="On",
+			},
+			["default"]=2.000000,
+			["tag"]="awardWeapons",
+		},
+		[6.000000]={
+			["buttonStrings"]={
+				[1.000000]="No",
+				[2.000000]="Yes",
+			},
+			["default"]=1.000000,
+			["tag"]="saveSpOptions",
+		},
+	},
+	["scripts_IG"]={
+	},
+	["instOp"]={
+	},
+}
+
+LoadLuaItems: 1 items, 512 -> 655 bytes
+Remaster: missing instant options, loading defaults..
+load theme:    ..\..\addon\Remaster\scripts\REMA_theme_script.lvl    REMA_theme_script
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'iface_bg_1' [e90bc7c9] uses 2.67 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'iface_bg_1' [e90bc7c9] uses 2.67 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'iface_bgmeta_space' [4680fea1] uses 2.67 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'iface_bgmeta_space' [4680fea1] uses 2.67 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'profile_manager' [c9e59c12] uses 2.67 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'profile_manager' [c9e59c12] uses 2.67 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'single_player_campaign' [19fc2fce] uses 2.67 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'single_player_campaign' [19fc2fce] uses 2.67 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'single_player_conquest' [ed8a527a] uses 2.67 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'single_player_conquest' [ed8a527a] uses 2.67 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'single_player_option' [1db18ad5] uses 2.67 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'single_player_option' [1db18ad5] uses 2.67 MB
+prev =     none     iLastPage =     nil
+prev =     texture     iLastPage =     1
+prev =     texture     iLastPage =     2
+prev =     texture     iLastPage =     3
+prev =     texture     iLastPage =     4
+ifs_legal.Exit
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\GameMovie.cpp(399)
+Unable to find open movie segment shell_main
+
+ifs_saveop_DoOps     LoadFileList
+ifs_saveop_DoOps     LoadFileList
+ifs_saveop_DoOps     LoadProfile
+ifs_saveop_DoOps     LoadProfile
+ifs_sp_campaign: Input_Accept(): Entered:     _tab_instant
+missionlist_ExpandMapList()
+ifs_missionselect_pcMulti_fnSetMapPreview(): Defaulting index to 1
+ifs_missionselect_pcMulti_fnSetMapPreview(): Stored movie name, file:     preview    ..\..\addon\BS2\data\_LVL_PC\movies\pre-movie
+custom_CheckChangeMovies(): Update(): Time to change movies
+ifs_missionselect_pcMulti_ChangeMovieFile(): MovieFile:    nil
+ifs_missionselect_pcMulti_ChangeMovieFile(): Closed any open movie
+ifs_missionselect_pcMulti_ChangeMovieFile(): Opening movie:    ..\..\addon\BS2\data\_LVL_PC\movies\pre-movie.mvs
+ifs_missionselect_pcMulti_ChangeMovieFile(): Finished opening movie
+ifs_missionselect_pcMulti_fnSetMapPreview(): Stored movie name, file:     preview-loop    MOVIES\pre-movie
+custom_CheckChangeMovies(): Update(): Time to change movies
+ifs_missionselect_pcMulti_ChangeMovieFile(): MovieFile:    nil
+ifs_missionselect_pcMulti_ChangeMovieFile(): Closed any open movie
+ifs_missionselect_pcMulti_ChangeMovieFile(): Opening movie:    MOVIES\pre-movie.mvs
+ifs_missionselect_pcMulti_ChangeMovieFile(): Finished opening movie
+this.CurButton =    check_mode1
+cur_button =    nil
+Checkbox for check_era7 clicked
+this.CurButton =    check_era7
+cur_button =    nil
+custom_AddMapNew()
+custom_printTable():    table: 10B9F70C
+The key, value is:    change    table: 1105E5F0
+The key, value is:    movieFile    MOVIES\pre-movie
+The key, value is:    mode_con_c    1
+The key is mapluafile, the formated value is:    pol1<A>_<B>
+The key, value is:    mode_c_g    1
+The key, value is:    movieName    preview-loop
+The key, value is:    bSelected    1
+The key, value is:    era_f    1
+The key, value is:    era_c    1
+The key, value is:    mode_con_f    1
+The key, value is:    mode_ctf_g    1
+The key, value is:    mode_con_g    1
+The key, value is:    era_g    1
+The key, value is:    mode_ctf_c    1
+custom_printTable(): Returning
+custom_printTable():    table: 10BA4C6C
+The key, value is:    key    mode_con
+The key, value is:    subst    con
+The key, value is:    showstr    modename.name.con
+The key, value is:    descstr    modename.description.con
+The key, value is:    icon    mode_icon_con
+custom_printTable(): Returning
+gMapEras[i].key =    era_g     Era =    era_g     subst =    g
+Adding map:     pol1g_con     idx:     1
+this.CurButton =    _map_add
+cur_button =    nil
+this.CurButton =    Launch
+cur_button =    nil
+
+Write Item 1:
+{
+	["scripts_IF"]={
+	},
+	["isRemaDatabase"]=true,
+	["data"]={
+		["awardEffects"]=1.000000,
+		["customColor"]=2.000000,
+		["saveSpOptions"]=2.000000,
+		["aihero"]=2.000000,
+		["heroVO"]=2.000000,
+		["awardWeapons"]=1.000000,
+	},
+	["scripts_IG"]={
+	},
+}
+
+SaveLuaItems: 1 items, 159 -> 124 bytes
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\HUDElementBitmap.cpp(380)
+HUD BitmapElement unable to find texture hud_target_hint_offscreen
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\HUDElementBitmap.cpp(380)
+HUD BitmapElement unable to find texture hud_target_hint_offscreen
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\HUDElementBitmap.cpp(380)
+HUD BitmapElement unable to find texture btn_directional_pad_LR
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\GameModel.cpp(221)
+Model "hud_weapon2_backdrop" already loaded in ather level file
+
+Read Item 1:
+{
+	["scripts_IF"]={
+	},
+	["isRemaDatabase"]=true,
+	["data"]={
+		["awardEffects"]=1.000000,
+		["customColor"]=2.000000,
+		["saveSpOptions"]=2.000000,
+		["aihero"]=2.000000,
+		["heroVO"]=2.000000,
+		["awardWeapons"]=1.000000,
+	},
+	["scripts_IG"]={
+	},
+}
+
+LoadLuaItems: 1 items, 124 -> 159 bytes
+Remaster: game upgrade complete
+
+game_interface: Entered
+utility_functions2: Listening on AddUnitClass() calls
+utility_functions2: Listening on SetHeroClass() calls
+utility_functions2: Listening on ReadDataFile() calls
+game_interface: Reading in custom strings
+game_interface: No user_script_0.lvl
+game_interface: No user_script_1.lvl
+game_interface: No user_script_2.lvl
+game_interface: No user_script_3.lvl
+game_interface: No user_script_4.lvl
+game_interface: No user_script_5.lvl
+game_interface: No user_script_6.lvl
+game_interface: No user_script_7.lvl
+game_interface: No user_script_8.lvl
+game_interface: No user_script_9.lvl
+game_interface: Found user_script_10.lvl
+user_script_10: Entered
+user_script_10: Replacing v1.3 (r117)'s AddUnitClass as it should've had a return value.  This fixes the Leia bug.
+user_script_10: No user_script_11.lvl.  Will stop searching for any more user scripts.
+user_script_10: Exited
+ifs_sideselect_fnBuildScreen()
+game_interface: Exited
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\EntityGeometry.cpp(1058)
+Entity "com_weap_veh_guided_rocket_ord" unknown terrain collision "p_front_sphere"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\EntityGeometry.cpp(1073)
+Entity "com_weap_veh_guided_rocket_ord" unknown vehicle collision "p_front_sphere"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\EntityGeometry.cpp(1065)
+Entity "com_weap_veh_guided_rocket_ord" unknown building collision "p_front_sphere"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\EntityGeometry.cpp(1051)
+Entity "com_weap_veh_guided_rocket_ord" unknown targetable collision "CollisionMesh"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(196)
+unknown VO type: 		SpottedVO
+
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(196)
+unknown VO type: 		NeedRepairVO
+
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(196)
+unknown VO type: 		NeedPickupVO
+
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(196)
+unknown VO type: 		NeedBackupVO
+
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(196)
+unknown VO type: 		DefendPositionVO
+
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (leia_hero_pc_com_hostile_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(196)
+unknown VO type: 		SpottedVO
+
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (leia_hero_pc_com_mechanic_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(196)
+unknown VO type: 		NeedRepairVO
+
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (leia_hero_pc_com_transport_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(196)
+unknown VO type: 		NeedPickupVO
+
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (leia_hero_pc_com_backup_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(196)
+unknown VO type: 		NeedBackupVO
+
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(196)
+unknown VO type: InVehicle
+
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (leia_hero_pc_com_defend_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(196)
+unknown VO type: 		DefendPositionVO
+
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\EntityGeometry.cpp(1103)
+Entity "all_hover_combatspeeder" unknown hit location "p_crithit"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\EntityGeometry.cpp(1065)
+Entity "all_hover_combatspeeder" unknown building collision "p_box"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_hostile_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_bacta_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_mechanic_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_ammo_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_transport_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_backup_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_clear_area_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_defend_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_hostile_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_bacta_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_mechanic_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_ammo_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_transport_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_backup_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_clear_area_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_defend_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_hostile_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_bacta_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_mechanic_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_ammo_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_transport_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_backup_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_clear_area_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_defend_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\EntityGeometry.cpp(1058)
+Entity "com_weap_award_rocket_launcher_" unknown terrain collision "p_front_sphere"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\EntityGeometry.cpp(1073)
+Entity "com_weap_award_rocket_launcher_" unknown vehicle collision "p_front_sphere"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\EntityGeometry.cpp(1065)
+Entity "com_weap_award_rocket_launcher_" unknown building collision "p_front_sphere"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\EntityGeometry.cpp(1051)
+Entity "com_weap_award_rocket_launcher_" unknown targetable collision "CollisionMesh"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_hostile_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_bacta_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_mechanic_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_ammo_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_transport_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_backup_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_clear_area_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all1_inf_pc_com_defend_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all3_inf_pc_com_hostile_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all3_inf_pc_com_bacta_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all3_inf_pc_com_mechanic_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all3_inf_pc_com_ammo_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all3_inf_pc_com_transport_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all3_inf_pc_com_backup_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all3_inf_pc_com_clear_area_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (all3_inf_pc_com_defend_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\EntityGeometry.cpp(1065)
+Entity "com_weap_inf_remotedroid_ord" unknown building collision "p_buildingsphere"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\EntityGeometry.cpp(1073)
+Entity "com_weap_inf_remotedroid_ord" unknown vehicle collision "p_buildingsphere"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\EntityGeometry.cpp(1089)
+Entity "com_weap_inf_remotedroid_ord" unknown ordnance collision "p_sphere"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\EntityGeometry.cpp(1081)
+Entity "com_weap_inf_remotedroid_ord" unknown soldier collision "p_sphere"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (wok1_inf_pc_com_hostile_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (wok1_inf_pc_com_bacta_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (wok1_inf_pc_com_mechanic_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (wok1_inf_pc_com_ammo_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (wok1_inf_pc_com_transport_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (wok1_inf_pc_com_backup_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (wok1_inf_pc_com_clear_area_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (wok1_inf_pc_com_defend_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_hostile_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_bacta_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_mechanic_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_ammo_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_transport_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_backup_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_clear_area_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_defend_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\EntitySoldier.cpp(10471)
+Soldier imp_inf_darktrooper has geometry collision
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_hostile_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_bacta_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_mechanic_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_ammo_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_transport_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_backup_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_clear_area_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_defend_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp2_inf_pc_com_hostile_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp2_inf_pc_com_bacta_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp2_inf_pc_com_mechanic_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp2_inf_pc_com_ammo_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp2_inf_pc_com_transport_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp2_inf_pc_com_backup_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp2_inf_pc_com_clear_area_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp2_inf_pc_com_defend_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_hostile_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_bacta_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_mechanic_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_ammo_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_transport_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_backup_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_clear_area_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_defend_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_hostile_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_bacta_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_mechanic_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_ammo_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_transport_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_backup_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_clear_area_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_defend_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_hostile_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_bacta_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_mechanic_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_ammo_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_transport_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_backup_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_clear_area_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (imp1_inf_pc_com_defend_inVehicle): unknown modifier "InVehicle"
+uf_updateClassIndex(): Added class:    all_inf_rifleman_urban
+uf_updateClassIndex(): Added class:    all_inf_rocketeer
+uf_updateClassIndex(): Added class:    all_inf_sniper
+uf_updateClassIndex(): Added class:    all_inf_engineer
+uf_updateClassIndex(): Added class:    all_inf_officer
+uf_updateClassIndex(): Added class:    all_inf_wookiee
+uf_updateClassIndex(): Added class:    imp_inf_rifleman
+uf_updateClassIndex(): Added class:    imp_inf_rocketeer
+uf_updateClassIndex(): Added class:    imp_inf_sniper
+uf_updateClassIndex(): Added class:    imp_inf_engineer
+uf_updateClassIndex(): Added class:    imp_inf_officer
+uf_updateClassIndex(): Added class:    imp_inf_dark_trooper
+uf_updateClassIndex(): Added class:    all_hero_leia
+uf_updateClassIndex(): Added class:    imp_hero_emperor
+utility_functions2: ReadDataFile(): This map's code, mode:     pol    pol1_conquest
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\StringDB.cpp(48)
+ID=9fcb3906: trying to replace "pol1_bldg_radar_controls" with "pol1_bldg_radar_controls5"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\StringDB.cpp(48)
+ID=ccac6373: trying to replace "pol1_bldg_radar_bridge" with "pol1_bldg_radar_bridge1"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\StringDB.cpp(48)
+ID=a0cb3a99: trying to replace "pol1_bldg_radar_controls" with "pol1_bldg_radar_controls4"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\StringDB.cpp(48)
+ID=6f34e65c: trying to replace "pol1_prop_door" with "pol1_prop_door2"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\StringDB.cpp(48)
+ID=4f55fddc: trying to replace "pol_bldg_hanger_03" with "pol_bldg_hanger_030"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\StringDB.cpp(48)
+ID=9ecb3773: trying to replace "pol1_bldg_radar_controls" with "pol1_bldg_radar_controls6"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\StringDB.cpp(48)
+ID=6d34e336: trying to replace "pol1_prop_door" with "pol1_prop_door4"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\StringDB.cpp(48)
+ID=6e34e4c9: trying to replace "pol1_prop_door" with "pol1_prop_door5"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\FLEffect.cpp(463)
+Attach: model '' [7f2ec12c] has no hardpoint 'hp_static' [a27e9d68]
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\FLEffect.cpp(463)
+Attach: model '' [7f2ec12c] has no hardpoint 'hp_static_1' [80a4ec8e]
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\StringDB.cpp(48)
+ID=555845e5: trying to replace "pol_bldg_hanger_02" with "pol_bldg_hanger_020"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\StringDB.cpp(48)
+ID=7034e7ef: trying to replace "pol1_prop_door" with "pol1_prop_door3"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\StringDB.cpp(48)
+ID=7234eb15: trying to replace "pol1_prop_door" with "pol1_prop_door1"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\StringDB.cpp(48)
+ID=a2cb3dbf: trying to replace "pol1_bldg_radar_controls" with "pol1_bldg_radar_controls2"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\StringDB.cpp(48)
+ID=a1cb3c2c: trying to replace "pol1_bldg_radar_controls" with "pol1_bldg_radar_controls3"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\StringDB.cpp(48)
+ID=c952ec53: trying to replace "pol_bldg_hanger_04" with "pol_bldg_hanger_040"
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 4
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 8
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 12
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 16
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 20
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 24
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 28
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 32
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 36
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 40
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 44
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 48
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 52
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 56
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 60
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 64
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 68
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 72
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 76
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 80
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 84
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 88
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 92
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 96
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 100
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 104
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 108
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 112
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 116
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 120
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 124
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 128
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 132
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 136
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 140
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 144
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 148
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 152
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 156
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 160
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 164
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 168
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 172
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 176
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 180
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 184
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 188
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 192
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 196
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 200
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 204
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 208
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 212
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 216
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 220
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 224
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 228
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 232
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 236
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 240
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 244
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 248
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 252
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 256
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(170)
+Memory pool "SoldierAnimation" is full; raise count to at least 260
+ifs_sideselect_fnEnter(): Map does not support custom era teams
+Remaster: don't care about award settings file. I handle this.
+ifs_sideselect_fnEnter(): The award settings file does not exist

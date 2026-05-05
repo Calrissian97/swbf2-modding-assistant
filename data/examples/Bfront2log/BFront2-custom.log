@@ -1,0 +1,790 @@
+Opened logfile BFront2.log  2026-04-15 1453
+Remaster v1.5 r2
+shell_interface: Entered
+shell_interface: gPlatformStr, gOnlineServiceStr, gLangStr, gLangEnum:     PC    GameSpy    english    0
+ifs_era_handler - Entered
+ifs_era_handler - Exited
+Remaster: ui upgrade complete
+
+shell_interface: No custom_gc_0.lvl
+shell_interface: No custom_gc_1.lvl
+shell_interface: No custom_gc_2.lvl
+shell_interface: No custom_gc_3.lvl
+shell_interface: No custom_gc_4.lvl
+shell_interface: No custom_gc_5.lvl
+shell_interface: No custom_gc_6.lvl
+shell_interface: No custom_gc_7.lvl
+shell_interface: Found custom_gc_8.lvl
+custom_gc_8: Entered ANF GC
+Entered ifs_freeform_init_ANF.lua
+ANF_Utilities Loaded...
+Entered ifs_freeform_start_ANF.lua
+custom_gc_8: Taking control of custom_GetGCButtonList()...
+custom_gc_8: Taking control of custom_PressedGCButton()...
+custom_gc_8: Exited ANF GC
+shell_interface: No custom_gc_9.lvl
+shell_interface: Found custom_gc_10.lvl
+custom_gc_10: Entered
+custom_gc_10: No custom_gc_11.lvl.  Will stop searching for any more cGC scripts.
+custom_gc_10: Exited
+custom_EraButtonList(): Finished building era button table    Known eras buttons: 28
+custom_GetGMapEras(): Finished building era table    Known eras: 28
+custom_GetGMapModes(): Finished building game mode table    Known Modes: 39
+custom_SetMovieLocation()
+custom_gc_8: custom_GetGCButtonList(): Entered
+custom_GetGCButtonList()
+custom_gc_8: custom_GetGCButtonList(): Exited
+custom_gc_8: custom_GetGCButtonList(): Entered
+custom_GetGCButtonList()
+custom_gc_8: custom_GetGCButtonList(): Exited
+custom_SetMovieLocation()
+ANF: Our GC Main has been patched through!
+custom_GetFreeformBattleModeList(): Finished building freeform battle mode list    Known Modes: 39
+ANF: Our GC Battlemode has been patched through!
+Calrissian97 Sends his Regards!
+ingame stream    movies\crawl.mvs
+shell_interface: Opening movie:    movies\shell.mvs
+shell_interface: Leaving
+Mission Checker: Entered addme
+Mission Checker: addme: Now listening in on AddDownloadableContent() calls
+Mission Checker: Exited addme
+A New Frontier: Jakku Found!
+ifs_saveop_DoOps     LoadFileList
+ifs_saveop_DoOps     LoadFileList
+ifs_saveop_DoOps     LoadMetagame
+ifs_saveop_DoOps     LoadMetagame
+
+Read Item 1:
+{
+	["scripts_IF"]={
+	},
+	["scripts_OP"]={
+	},
+	["data"]={
+		["awardEffects"]=1.000000,
+		["awardWeapons"]=1.000000,
+		["saveSpOptions"]=2.000000,
+		["aihero"]=2.000000,
+		["heroVO"]=2.000000,
+		["customColor"]=2.000000,
+	},
+	["scripts_GT"]={
+		[1.000000]="REMA",
+	},
+	["themeIdx"]=1.000000,
+	["qs"]={
+		[1.000000]={
+			["buttonStrings"]={
+				[1.000000]="No",
+				[2.000000]="Yes",
+			},
+			["default"]=2.000000,
+			["tag"]="aihero",
+		},
+		[2.000000]={
+			["buttonStrings"]={
+				[1.000000]="No",
+				[2.000000]="Yes",
+			},
+			["default"]=2.000000,
+			["tag"]="heroVO",
+		},
+		[3.000000]={
+			["buttonStrings"]={
+				[1.000000]="Off",
+				[2.000000]="On",
+			},
+			["default"]=2.000000,
+			["tag"]="customColor",
+		},
+		[4.000000]={
+			["buttonStrings"]={
+				[1.000000]="Off",
+				[2.000000]="On",
+			},
+			["default"]=1.000000,
+			["tag"]="awardEffects",
+		},
+		[5.000000]={
+			["buttonStrings"]={
+				[1.000000]="Off",
+				[2.000000]="On",
+			},
+			["default"]=2.000000,
+			["tag"]="awardWeapons",
+		},
+		[6.000000]={
+			["buttonStrings"]={
+				[1.000000]="No",
+				[2.000000]="Yes",
+			},
+			["default"]=1.000000,
+			["tag"]="saveSpOptions",
+		},
+	},
+	["scripts_IG"]={
+	},
+	["instOp"]={
+	},
+}
+
+LoadLuaItems: 1 items, 512 -> 655 bytes
+Remaster: missing instant options, loading defaults..
+load theme:    ..\..\addon\Remaster\scripts\REMA_theme_script.lvl    REMA_theme_script
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'iface_bg_1' [e90bc7c9] uses 2.67 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'iface_bg_1' [e90bc7c9] uses 2.67 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'iface_bgmeta_space' [4680fea1] uses 2.67 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'iface_bgmeta_space' [4680fea1] uses 2.67 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'profile_manager' [c9e59c12] uses 2.67 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'profile_manager' [c9e59c12] uses 2.67 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'single_player_campaign' [19fc2fce] uses 2.67 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'single_player_campaign' [19fc2fce] uses 2.67 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'single_player_conquest' [ed8a527a] uses 2.67 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'single_player_conquest' [ed8a527a] uses 2.67 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'single_player_option' [1db18ad5] uses 2.67 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'single_player_option' [1db18ad5] uses 2.67 MB
+prev =     none     iLastPage =     nil
+prev =     texture     iLastPage =     1
+prev =     texture     iLastPage =     2
+prev =     texture     iLastPage =     3
+prev =     texture     iLastPage =     4
+ifs_legal.Exit
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\GameMovie.cpp(399)
+Unable to find open movie segment shell_main
+
+ifs_saveop_DoOps     LoadFileList
+ifs_saveop_DoOps     LoadFileList
+ifs_saveop_DoOps     LoadProfile
+ifs_saveop_DoOps     LoadProfile
+ifs_sp_campaign: Input_Accept(): Entered:     _tab_instant
+missionlist_ExpandMapList()
+ifs_missionselect_pcMulti_fnSetMapPreview(): Defaulting index to 1
+ifs_missionselect_pcMulti_fnSetMapPreview(): Stored movie name, file:     preview    ..\..\addon\BS2\data\_LVL_PC\movies\pre-movie
+custom_CheckChangeMovies(): Update(): Time to change movies
+ifs_missionselect_pcMulti_ChangeMovieFile(): MovieFile:    nil
+ifs_missionselect_pcMulti_ChangeMovieFile(): Closed any open movie
+ifs_missionselect_pcMulti_ChangeMovieFile(): Opening movie:    ..\..\addon\BS2\data\_LVL_PC\movies\pre-movie.mvs
+ifs_missionselect_pcMulti_ChangeMovieFile(): Finished opening movie
+ifs_missionselect_pcMulti_fnSetMapPreview(): Stored movie name, file:     preview    ..\..\addon\NA1\data\_LVL_PC\movies\pre-movie
+custom_CheckChangeMovies(): Update(): Time to change movies
+ifs_missionselect_pcMulti_ChangeMovieFile(): MovieFile:    nil
+ifs_missionselect_pcMulti_ChangeMovieFile(): Closed any open movie
+ifs_missionselect_pcMulti_ChangeMovieFile(): Opening movie:    ..\..\addon\NA1\data\_LVL_PC\movies\pre-movie.mvs
+ifs_missionselect_pcMulti_ChangeMovieFile(): Finished opening movie
+this.CurButton =    check_mode1
+cur_button =    nil
+Checkbox for check_era3 clicked
+this.CurButton =    check_era3
+cur_button =    nil
+this.CurButton =    nil
+cur_button =    nil
+custom_AddMapNew()
+custom_printTable():    table: 10CD824C
+The key, value is:    movieFile    ..\..\addon\NA1\data\_LVL_PC\movies\pre-movie
+The key, value is:    mode_con_c    1
+The key, value is:    isModLevel    1
+The key, value is:    bSelected    1
+The key, value is:    era_c    1
+The key, value is:    red    225
+The key, value is:    mode_hunt_g    1
+The key, value is:    mode_hunt_c    1
+The key, value is:    blue    0
+The key, value is:    mode_xl_g    1
+The key, value is:    movieName    preview
+The key, value is:    mode_xl_c    1
+The key, value is:    green    225
+The key, value is:    mode_eli_g    1
+The key, value is:    mode_con_g    1
+The key, value is:    era_g    1
+The key is mapluafile, the formated value is:    NA1<A>_<B>
+custom_printTable(): Returning
+custom_printTable():    table: 10CE0C6C
+The key, value is:    key    mode_con
+The key, value is:    subst    con
+The key, value is:    showstr    modename.name.con
+The key, value is:    descstr    modename.description.con
+The key, value is:    icon    mode_icon_con
+custom_printTable(): Returning
+gMapEras[i].key =    era_c     Era =    era_c     subst =    c
+Adding map:     NA1c_con     idx:     1
+this.CurButton =    _map_add
+cur_button =    nil
+this.CurButton =    Launch
+cur_button =    nil
+
+Write Item 1:
+{
+	["scripts_IF"]={
+	},
+	["isRemaDatabase"]=true,
+	["data"]={
+		["awardEffects"]=1.000000,
+		["customColor"]=2.000000,
+		["saveSpOptions"]=2.000000,
+		["aihero"]=2.000000,
+		["heroVO"]=2.000000,
+		["awardWeapons"]=1.000000,
+	},
+	["scripts_IG"]={
+	},
+}
+
+SaveLuaItems: 1 items, 159 -> 124 bytes
+NA1:IsMulti: In singleplayer session
+NA1: Environment BF1 selected
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\GameModel.cpp(221)
+Model "com_bldg_controlzone" already loaded in ather level file
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\CollisionBody.cpp(250)
+Duplicate collisionbodyprimitive exists in another level file: ffe3f51c
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\GameModel.cpp(221)
+Model "com_icon_alliance" already loaded in ather level file
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\GameModel.cpp(221)
+Model "com_icon_imperial" already loaded in ather level file
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\GameModel.cpp(221)
+Model "com_icon_republic" already loaded in ather level file
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\GameModel.cpp(221)
+Model "com_icon_cis" already loaded in ather level file
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\GameModel.cpp(221)
+Model "com_item_weaponrecharge" already loaded in ather level file
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\CollisionBody.cpp(250)
+Duplicate collisionbodyprimitive exists in another level file: 4e0d396c
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\HUDElementBitmap.cpp(380)
+HUD BitmapElement unable to find texture hud_target_hint_offscreen
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\HUDElementBitmap.cpp(380)
+HUD BitmapElement unable to find texture hud_target_hint_offscreen
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\HUDElementBitmap.cpp(380)
+HUD BitmapElement unable to find texture btn_directional_pad_LR
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\GameModel.cpp(221)
+Model "hud_weapon2_backdrop" already loaded in ather level file
+
+Read Item 1:
+{
+	["scripts_IF"]={
+	},
+	["isRemaDatabase"]=true,
+	["data"]={
+		["awardEffects"]=1.000000,
+		["customColor"]=2.000000,
+		["saveSpOptions"]=2.000000,
+		["aihero"]=2.000000,
+		["heroVO"]=2.000000,
+		["awardWeapons"]=1.000000,
+	},
+	["scripts_IG"]={
+	},
+}
+
+LoadLuaItems: 1 items, 124 -> 159 bytes
+Remaster: game upgrade complete
+
+game_interface: Entered
+utility_functions2: Listening on AddUnitClass() calls
+utility_functions2: Listening on SetHeroClass() calls
+utility_functions2: Listening on ReadDataFile() calls
+game_interface: Reading in custom strings
+game_interface: No user_script_0.lvl
+game_interface: No user_script_1.lvl
+game_interface: No user_script_2.lvl
+game_interface: No user_script_3.lvl
+game_interface: No user_script_4.lvl
+game_interface: No user_script_5.lvl
+game_interface: No user_script_6.lvl
+game_interface: No user_script_7.lvl
+game_interface: No user_script_8.lvl
+game_interface: No user_script_9.lvl
+game_interface: Found user_script_10.lvl
+user_script_10: Entered
+user_script_10: Replacing v1.3 (r117)'s AddUnitClass as it should've had a return value.  This fixes the Leia bug.
+user_script_10: No user_script_11.lvl.  Will stop searching for any more user scripts.
+user_script_10: Exited
+ifs_sideselect_fnBuildScreen()
+game_interface: Exited
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Memory\RedMemoryPool.cpp(317)
+Memory pool "ClothData" set item count after being allocated
+NA1: Starfighters enabled
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\EntityGeometry.cpp(1058)
+Entity "com_weap_veh_guided_rocket_ord" unknown terrain collision "p_front_sphere"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\EntityGeometry.cpp(1073)
+Entity "com_weap_veh_guided_rocket_ord" unknown vehicle collision "p_front_sphere"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\EntityGeometry.cpp(1065)
+Entity "com_weap_veh_guided_rocket_ord" unknown building collision "p_front_sphere"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\EntityGeometry.cpp(1051)
+Entity "com_weap_veh_guided_rocket_ord" unknown targetable collision "CollisionMesh"
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'rep_fly_fighter' [d2b15d94] uses 1.33 MB
+NA1: Kaadu walkers enabled
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (rep1_inf_pc_com_hostile_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (rep1_inf_pc_com_bacta_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (rep1_inf_pc_com_mechanic_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (rep1_inf_pc_com_ammo_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (rep1_inf_pc_com_transport_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (rep1_inf_pc_com_backup_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (rep1_inf_pc_com_clear_area_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (rep1_inf_pc_com_defend_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\EntityGeometry.cpp(1058)
+Entity "com_weap_award_rocket_launcher_" unknown terrain collision "p_front_sphere"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\EntityGeometry.cpp(1073)
+Entity "com_weap_award_rocket_launcher_" unknown vehicle collision "p_front_sphere"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\EntityGeometry.cpp(1065)
+Entity "com_weap_award_rocket_launcher_" unknown building collision "p_front_sphere"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\EntityGeometry.cpp(1051)
+Entity "com_weap_award_rocket_launcher_" unknown targetable collision "CollisionMesh"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\EntityGeometry.cpp(1065)
+Entity "com_weap_inf_remotedroid_ord" unknown building collision "p_buildingsphere"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\EntityGeometry.cpp(1073)
+Entity "com_weap_inf_remotedroid_ord" unknown vehicle collision "p_buildingsphere"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\EntityGeometry.cpp(1089)
+Entity "com_weap_inf_remotedroid_ord" unknown ordnance collision "p_sphere"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\EntityGeometry.cpp(1081)
+Entity "com_weap_inf_remotedroid_ord" unknown soldier collision "p_sphere"
+
+Message Severity: 3
+C:\Battlefront2\main\Battlefront2\Source\LoadUtil.cpp(829)
+Unable to find level chunk  in data\_lvl_pc\SIDE\rep.lvl
+
+
+Message Severity: 3
+C:\Battlefront2\main\Battlefront2\Source\LoadUtil.cpp(1019)
+Unable to find level chunk  in SIDE\rep.lvl
+
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\FLEffect.cpp(214)
+FLEffect::Read: duplicate effect class name (d6c288e8)!
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\FLEffect.cpp(214)
+FLEffect::Read: duplicate effect class name (6616778a)!
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\FLEffect.cpp(214)
+FLEffect::Read: duplicate effect class name (ef255e37)!
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\FLEffect.cpp(214)
+FLEffect::Read: duplicate effect class name (c3a9860f)!
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_hostile_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_bacta_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_mechanic_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_ammo_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_transport_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_backup_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_clear_area_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_defend_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_hostile_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_bacta_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_mechanic_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_ammo_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_transport_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_backup_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_clear_area_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_defend_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\FLEffect.cpp(214)
+FLEffect::Read: duplicate effect class name (5f518933)!
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_hostile_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_bacta_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_mechanic_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_ammo_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_transport_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_backup_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_clear_area_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_defend_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\FLEffect.cpp(214)
+FLEffect::Read: duplicate effect class name (5f518933)!
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_hostile_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_bacta_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_mechanic_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_ammo_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_transport_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_backup_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_clear_area_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_defend_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\FLEffect.cpp(214)
+FLEffect::Read: duplicate effect class name (5f518933)!
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_hostile_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_bacta_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_mechanic_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_ammo_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_transport_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_backup_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_clear_area_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_defend_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\FLEffect.cpp(214)
+FLEffect::Read: duplicate effect class name (5f518933)!
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_hostile_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_bacta_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_mechanic_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_ammo_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_transport_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_backup_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_clear_area_inVehicle): unknown modifier "InVehicle"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VOHelper.cpp(183)
+VOSound (cis1_inf_pc_com_defend_inVehicle): unknown modifier "InVehicle"
+uf_updateClassIndex(): Added class:    rep_inf_ep2_rifleman
+uf_updateClassIndex(): Added class:    rep_inf_ep2_rocketeer
+uf_updateClassIndex(): Added class:    rep_inf_ep2_sniper
+uf_updateClassIndex(): Added class:    rep_inf_ep2_engineer
+uf_updateClassIndex(): Added class:    rep_inf_ep3_officer
+uf_updateClassIndex(): Added class:    rep_inf_ep2_jettrooper
+uf_updateClassIndex(): Added class:    cis_inf_rifleman
+uf_updateClassIndex(): Added class:    cis_inf_rocketeer
+uf_updateClassIndex(): Added class:    cis_inf_sniper
+uf_updateClassIndex(): Added class:    cis_inf_engineer
+uf_updateClassIndex(): Added class:    cis_inf_officer
+uf_updateClassIndex(): Added class:    cis_inf_droideka
+uf_updateClassIndex(): Added class:    cis_hero_darthmaul
+uf_updateClassIndex(): Added class:    rep_hero_obiwan
+NA1: Gungan Team enabled
+uf_updateClassIndex(): Added class:    gun_inf_defender
+uf_updateClassIndex(): Added class:    gun_inf_soldier
+uf_updateClassIndex(): Added class:    gun_inf_rider
+NA1: Fambaa Shields enabled
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'nab1_grass_tall' [79387832] uses 1.33 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'nab1_prop_ruins1' [4d08e86e] uses 1.33 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'cis_hover_mtt' [a1100473] uses 5.33 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'nab1_prop_gunganhead' [9753a446] uses 1.33 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'c9799' [1400a8b8] uses 5.33 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'c9799_bump' [05c6db35] uses 1.33 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'c9799_panel' [c07ca6c5] uses 5.33 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'c9799_panel_bump' [d1f15d4e] uses 1.33 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'nab1_grass_far' [b06ce862] uses 1.33 MB
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'nab1_grass' [489a091c] uses 1.33 MB
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VehicleSpawn.cpp(191)
+Vehicle spawn missing class "rep_hover_barcspeeder"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VehicleSpawn.cpp(191)
+Vehicle spawn missing class "rep_hover_barcspeeder"
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\VehicleSpawn.cpp(191)
+Vehicle spawn missing class "rep_hover_barcspeeder"
+
+Message Severity: 3
+C:\Battlefront2\main\Battlefront2\Source\LoadUtil.cpp(829)
+Unable to find level chunk  in data\_lvl_pc\..\..\addon\NA1\data\_lvl_pc\NA1\NA1.lvl
+
+
+Message Severity: 3
+C:\Battlefront2\main\Battlefront2\Source\LoadUtil.cpp(1019)
+Unable to find level chunk  in ..\..\addon\NA1\data\_lvl_pc\NA1\NA1.lvl
+
+
+Message Severity: 2
+C:\Battlefront2\main\RedEngineFL\Graphics\PC\pcRedTexture.cpp(553)
+Texture 'sky_mountains' [259a3365] uses 1.33 MB
+ifs_sideselect_fnEnter(): Map does not support custom era teams
+Remaster: don't care about award settings file. I handle this.
+ifs_sideselect_fnEnter(): The award settings file does not exist
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\PowerupItem.cpp(49)
+powerup fell thru' terrain, x = 139.116089, z = 949.395142
+
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\PowerupItem.cpp(49)
+powerup fell thru' terrain, x = -811.980347, z = 779.149719
+
+
+Message Severity: 2
+C:\Battlefront2\main\Battlefront2\Source\PowerupItem.cpp(49)
+powerup fell thru' terrain, x = 112.278931, z = 949.395142
+
