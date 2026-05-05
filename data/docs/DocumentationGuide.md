@@ -14,7 +14,7 @@
 | **Munging** | ModtoolsMunging.md | **"REQ to LVL Munging" section;** additional relevant sections |
 | **File types, tools, patches** | ModtoolsFileTypes.md | **Relevant section(s)** |
 | **Where to find a file** | ModtoolsDirectoryStructure.md | **Entire document** |
-| **Model or texture creation or conventions** | ModelAndTextureGuide.md | **Relevant section(s);** "Option Files" section |
+| **Model or texture creation, conventions, and option files** | ModelAndTextureGuide.md | **Relevant section(s);** "Option Files" section |
 | **Addme scripts, preview videos, addon map appearance, era/gamemode** | LuaAddmeScripts.md; CommunityTutorials.md | **Entire LuaAddmeScripts.md;** relevant CommunityTutorials sections |
 | **Mission scripts** | LuaMemoryPools.md; LuaMissionScripts.md; LuaScripts.md | **Entire LuaMemoryPools.md;** "Mission Scripting Overview" and "Mission Script Conventions" in LuaMissionScripts.md; "Lua Version" and "Paths In Lua" in LuaScripts.md; additional relevant sections |
 | **Lua functions** | LuaScripts.md | **Relevant section(s)** |
