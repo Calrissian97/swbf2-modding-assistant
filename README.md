@@ -13,3 +13,21 @@ A local AI assistant for modding Star Wars Battlefront II (2005).
 - Web Browser
 - Bring your own GGUF LLM and drop it into the models folder. You may have several models and choose from them in the WebUI.
 - The app will download an appropriate release of llama.cpp for your detected hardware on first startup. You may replace it with your own preferred release at any time, simply delete the automatically downloaded release and drop in your preferred release folder into the llama folder.
+
+# 📷 WebUI
+![WebUI Screenshot](data/html/WebUI.png)
+
+# ⚙️ Customization
+The Settings modal of the WebUI offers several customization options:
+- Dark Mode
+- Font (Default, Orbitron, Aurebesh)
+- Auto-Load Last Used Model on Startup
+- Context-Length
+- Model Selection
+- Show Tool Calls
+- Show AI Reasoning
+
+As well as a few convenience features:
+- Export Conversations
+- Import Conversations
+- Delete All Conversations
