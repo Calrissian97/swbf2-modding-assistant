@@ -112,17 +112,17 @@ def download_release_asset(tags):
         asset_name = asset["name"].lower()
         if all(tag.lower() in asset_name for tag in tags):
             url = asset["browser_download_url"]
-            destination = os.path.join(BIN_DIR, asset["name"])
+            downloadedFile = os.path.join(BIN_DIR, asset["name"])
             if DEBUG_LLAMA:
                 print(f"ll::download_release_asset: Downloading {asset['name']}...")
             with requests.get(url, stream=True) as r:
                 r.raise_for_status()
-                with open(destination, "wb") as f:
+                with open(downloadedFile, "wb") as f:
                     for chunk in r.iter_content(chunk_size=8192):
                         f.write(chunk)
-            return destination
+            return downloadedFile
 
-    raise RuntimeError(f"No asset found containing all of: {tags}")
+    raise RuntimeError(f"No asset found containing all of: {tags}.\nDownloading has failed.")
 
 
 def extract_zip(path):
@@ -131,6 +131,9 @@ def extract_zip(path):
     """
     
     folder_name = os.path.splitext(os.path.basename(path))[0]
+    if not os.path.exists(path):
+        raise FileNotFoundError(f"The specified path '{path}' does not exist!\n Downloading llama.cpp may have failed.")
+
     target_dir = os.path.join(BIN_DIR, folder_name)
     if DEBUG_LLAMA: 
         print(f"ll::extract_zip: Extracting {path} to {target_dir}...")
@@ -196,7 +199,7 @@ def validate_binary():
             if "server" in f.lower() and all(t.lower() in full_path_lower for t in search_tags):
                 return os.path.join(root, f)
 
-    raise RuntimeError("Failed to locate llama-server binary after extraction")
+    raise RuntimeError("Failed to locate llama-server binary after extraction!\nPlease make sure a llama.cpp release is extracted in the llama folder.")
 
 
 # ------------------------------
