@@ -184,6 +184,8 @@ def validate_binary():
     for root, dirs, files in os.walk(BIN_DIR):
         for f in files:
             full_path_lower = os.path.join(root, f).lower()
+            if os_environment == "windows" and not f.lower().endswith(".exe"):
+                continue
             if "server" in f.lower() and all(t.lower() in full_path_lower for t in search_tags):
                 return os.path.join(root, f)
 
@@ -196,6 +198,8 @@ def validate_binary():
     for root, dirs, files in os.walk(BIN_DIR):
         for f in files:
             full_path_lower = os.path.join(root, f).lower()
+            if os_environment == "windows" and not f.lower().endswith(".exe"):
+                continue
             if "server" in f.lower() and all(t.lower() in full_path_lower for t in search_tags):
                 return os.path.join(root, f)
 
